@@ -259,7 +259,8 @@ const CONFIG = {
       {t:"집중력 회복 교양서", d:"주의력과 뇌과학을 다룬 베스트셀러", link:""},
       {t:"수능 국어 비문학 독해집", d:"매일 한 지문씩 푸는 독서 영역 문제집", link:""}
     ],
-    common: {t:"쿠팡 도서 둘러보기", d:"오늘 읽은 글 다음에 읽을 책 찾기", link:"https://link.coupang.com/a/iz0SJ0Wc8q"}
+    common: {t:"쿠팡 도서 둘러보기", d:"오늘 읽은 글 다음에 읽을 책 찾기", link:"https://link.coupang.com/a/iz0SJ0Wc8q"},
+    home: {t:"쿠팡 홈 바로가기", d:"책 말고 필요한 물건도 둘러보기", link:"https://link.coupang.com/a/iz1affphaS"}
   }
 };
 
@@ -316,7 +317,7 @@ $("prevDay").onclick=()=>{if(dayIdx>0){dayIdx--;render(cur);window.scrollTo(0,0)
 $("nextDay").onclick=()=>{if(dayIdx<todayIdx){dayIdx++;render(cur);window.scrollTo(0,0)}};
 function renderShop(k){
   const S=CONFIG.shop, a=curRead.e.author;
-  const list=k==="novel"?[{t:a+" 단편선",d:`「${curRead.e.work}」이 실린 작품집`,link:S.authors[a]||""},S.novelMore,S.common]:[...S.nonfic,S.common];
+  const list=k==="novel"?[{t:a+" 단편선",d:`「${curRead.e.work}」이 실린 작품집`,link:S.authors[a]||""},S.novelMore,S.common,S.home]:[...S.nonfic,S.common,S.home];
   $("items").innerHTML="";
   /* 파트너스 링크가 하나도 없으면 상품 칸을 숨깁니다 */
   const live=list.filter(it=>it.link);
