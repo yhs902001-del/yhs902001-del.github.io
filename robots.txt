@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://yhs902001-del.github.io/5min/sitemap.xml
+Sitemap: https://yhs902001-del.github.io/sitemap.xml
