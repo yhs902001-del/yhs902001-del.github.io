@@ -119,6 +119,8 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
 .item span{font-size:.82rem;color:var(--muted);line-height:1.5}
 .item em{font-style:normal;font-size:.8rem;color:var(--sand);margin-top:auto;padding-top:6px}
 .item.nolink em{color:var(--muted)}
+.banner{grid-column:1/-1;display:block;line-height:0;border-radius:8px;overflow:hidden}
+.banner img{width:100%;max-width:728px;height:auto;display:block;margin:0 auto}
 .disclose{font-size:.75rem;color:var(--muted);line-height:1.5}
 .ad{min-height:120px;display:flex;align-items:center;justify-content:center}
 .ad.ph{border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:.82rem;text-align:center;padding:16px}
@@ -261,7 +263,9 @@ const CONFIG = {
       {t:"집중력 회복 교양서", d:"주의력과 뇌과학을 다룬 베스트셀러", link:""},
       {t:"수능 국어 비문학 독해집", d:"매일 한 지문씩 푸는 독서 영역 문제집", link:""}
     ],
-    common: {t:"쿠팡 도서 둘러보기", d:"오늘 읽은 글 다음에 읽을 책 찾기", link:"https://link.coupang.com/a/iz0SJ0Wc8q"},
+    // img를 넣으면 글자 버튼 대신 사진 배너로 보입니다 (파트너스 배너 HTML의 a href와 img src)
+    common: {t:"쿠팡 도서", d:"쿠팡 배너", link:"https://link.coupang.com/a/iz2tDghM2m",
+             img:"https://ads-partners.coupang.com/banners/1049089?trackingCode=AF7764557&subId=&traceId=V0-301-f5c692db558def48-I1049089&w=728&h=90", w:728, h:90},
     home: {t:"쿠팡 홈 바로가기", d:"책 말고 필요한 물건도 둘러보기", link:"https://link.coupang.com/a/iz1affphaS"}
   }
 };
@@ -325,6 +329,15 @@ function renderShop(k){
   const live=list.filter(it=>it.link);
   document.querySelector(".shop").hidden=live.length===0;
   live.forEach(it=>{
+    if(it.img){
+      const b=document.createElement("a");
+      b.className="banner"; b.href=it.link; b.target="_blank"; b.rel="sponsored noopener";
+      b.referrerPolicy="unsafe-url";
+      const im=document.createElement("img");
+      im.src=it.img; im.alt="쿠팡 추천 상품"; im.width=it.w||728; im.height=it.h||90; im.loading="lazy";
+      im.referrerPolicy="unsafe-url";
+      b.appendChild(im); $("items").appendChild(b); return;
+    }
     const a=document.createElement(it.link?"a":"div");
     a.className="item"+(it.link?"":" nolink");
     if(it.link){a.href=it.link;a.target="_blank";a.rel="sponsored noopener"}
