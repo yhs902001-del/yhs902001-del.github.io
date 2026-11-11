@@ -97,6 +97,8 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
 .gloss{border-top:1px solid var(--line);padding-top:14px;margin-top:8px;font-size:.88rem;color:var(--muted);display:grid;gap:4px}
 .gloss b{color:var(--ink);font-weight:600;margin-right:6px}
 .src{font-size:.78rem;color:var(--muted);margin-top:14px}
+.next{display:flex;justify-content:center;margin:26px 0 4px}
+.next .btn{display:inline-block;padding:14px 24px;font-size:1rem;text-decoration:none}
 .quiz{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:20px}
 .quiz h3{margin:0;font:600 1.05rem var(--f-ui)}
 .q p{margin:0 0 10px;font-weight:500;line-height:1.6}
@@ -164,7 +166,6 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
     <button class="tab" role="tab" id="tab-novel" aria-selected="true" data-k="novel">오늘의 소설</button>
     <button class="tab" role="tab" id="tab-nonfic" aria-selected="false" data-k="nonfic">오늘의 비문학</button>
   </div>
-<nav class="fixednav"><a href="../read/unsu-joeun-nal-4.html">← 운수 좋은 날 4회</a><a href="../list.html">전체 글</a><a href="../read/b-sagam-2.html">B사감과 러브레터 2회 →</a></nav>
   <div class="daynav">
     <button class="btn sm" id="prevDay">← 이전 글</button>
     <span id="dayLabel"></span>
@@ -230,6 +231,7 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
 </div>
     <div class="gloss" id="gloss"></div>
     <div class="src" id="src"></div>
+    <div class="next"><a class="btn primary" id="switchBtn" href="#">이어서 비문학 읽기 →</a></div>
   </article>
 
   <aside class="shop" aria-label="오늘의 글, 책으로">
@@ -251,13 +253,12 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
   </section>
 </div>
 
-<script>window.H5_FIXED={"k":"novel","i":6}</script>
 <footer class="foot" style="padding-left:max(0px,env(safe-area-inset-left,0px))">
-  <nav><a href="../index.html">오늘의 글</a><a href="../list.html">전체 글</a><a href="../about.html">소개</a><a href="../privacy.html">개인정보처리방침</a></nav>
+  <nav><a href="../index.html">오늘의 글</a><a href="../about.html">소개</a><a href="../privacy.html">개인정보처리방침</a></nav>
   <div>소설은 저작권 보호 기간이 끝난 작품을 위키문헌 원문 그대로 싣고, 비문학 지문은 5분 뽀모도로가 직접 씁니다.</div>
   <div>© 2026 5분 뽀모도로</div>
 </footer>
-<script src="../passages.js"></script>
+<script>window.H5_PREFIX="../";window.H5_META={"novel":60,"nonfic":60};window.H5_FIXED={"k":"novel","i":10,"e":{"work":"B사감과 러브레터","author":"현진건","life":"1900~1943","year":1925,"part":1,"of":2,"gloss":[["사감","기숙사를 감독하는 사람"],["딱장대","성질이 딱딱하고 거친 사람"],["야소군","예수교 신자"],["사신","개인끼리 주고받는 편지"],["교의","의자"]],"text":"C여학교에서 교원 겸 기숙사 사감 노릇을 하는 B여사라면 딱장대요 독신주의자요 찰진 야소군으로 유명하다. 사십에 가까운 노처녀인 그는 죽은깨투성이 얼굴이 처녀다운 맛이란 약에 쓰려도 찾을 수 없을 뿐인가, 시들고 거칠고 마르고 누렇게 뜬 품이 곰팡 슬은 굴비를 생각나게 한다.\n\n여러 겹 주름이 잡힌 훨렁 벗겨진 이마라든지, 숱이 적어서 법대로 쪽찌거나 틀어올리지를 못하고 엉성하게 그냥 빗어넘긴 머리꼬리가 뒤통수에 염소 똥만하게 붙은 것이라든지, 벌써 늙어가는 자취를 감출 길이 없었다. 뾰족한 입을 앙다물고 돋보기 너머로 쌀쌀한 눈이 노릴 때엔 기숙생들이 오싹하고 몸서리를 치리만큼 그는 엄격하고 매서웠다.\n\n이 B여사가 질겁을 하다시피 싫어하고 미워하는 것은 소위 '러브레터'였다. 여학교 기숙사라면 으례히 그런 편지가 많이 오는 것이지만 학교로도 유명하고 또 아름다운 여학생이 많은 탓인지 모르되 하루에도 몇 장씩 죽느니 사느니 하는 사랑 타령이 날아들어 왔었다.\n\n기숙생에게 오는 사신을 일일이 검토하는 터이니까 그따위 편지도 물론 B여사의 손에 떨어진다. 달짝지근한 사연을 보는 족족 그는 더할 수 없이 흥분되어서 얼굴이 붉으락푸르락, 편지 든 손이 발발 떨리도록 성을 낸다.\n\n아무 까닭 없이 그런 편지를 받은 학생이야말로 큰 재변이었다. 하학하기가 무섭게 그 학생은 사감실로 불리어 간다. 분해서 못 견디겠다는 사람 모양으로 쌔근쌔근하며 방안을 왔다갔다하던 그는, 들어오는 학생을 잡아먹을 듯이 노리면서 한 걸음 두 걸음 코가 맞닿을 만큼 바싹 다가들어서서 딱 마주선다. 웬 영문인지 알지 못하면서도 선생의 기색을 살피고 겁부터 집어먹은 학생은 한동안 어쩔 줄 모르다가 간신히 모기만한 소리로,\n\n“저를 부르셨어요?”\n\n하고 묻는다.\n\n“그래 불렀다. 왜!”\n\n팍 무는 듯이 한 마디 하고 나서 매우 못마땅한 것처럼 교의를 우당퉁탕 당겨서 철썩 주저앉았다가 그저 서 있는 걸 보면,\n\n“장승이냐? 왜 앉지를 못해!”\n\n하고 또 소리를 빽 지르는 법이었다. 스승과 제자는 조그마한 책상 하나를 새에 두고 마주앉는다. 앉은 뒤에도,\n\n“네 죄상을 네가 알지!”\n\n하는 것처럼 아무 말 없이 눈살로 쏘기만 하다가 한참만에야 그 편지를 끄집어내어 학생의 코앞에 동댕이를 치며,\n\n“이건 누구한테 오는 거냐?”\n\n하고, 문초를 시작한다. 앞장에 제 이름이 쓰였는지라,\n\n“저한테 온 것이야요.”\n\n하고, 대답 않을 수 없다. 그러면 발신인이 누구인 것을 채쳐 묻는다. 그런 편지의 항용으로 발신인의 성명이 똑똑치 않기 때문에 주저주저하다가 자세히 알 수 없다고 내대일 양이면,\n\n“너한테 오는 것을 네가 모른단 말이냐?”\n\n고, 불호령을 내린 뒤에 또 사연을 읽어 보라 하여 무심한 학생이 나즉나즉하나마 꿀 같은 구절을 입술에 올리면, B여사의 역정은 더욱 심해져서 어느 놈의 소위인 것을 기어이 알려 한다. 기실 보도 듣도 못한 남성의 한 노릇이요, 자기에게는 아무 죄도 없는 것을 변명하여도 곧이 듣지를 않는다. 바른대로 아뢰어야 망정이지 그렇지 않으면 퇴학을 시킨다는 둥, 제 이름도 모르는 여자에게 편지할 리가 만무하다는 둥, 필연 행실이 부정한 일이 있으리라는 둥…\n\n하다못해 어디서 한 번 만나기라도 하였을 테니 어찌해서 남자와 접촉을 하게 되었냐는 둥, 자칫 잘못하여 학교에서 주최한 음악회나 '바자'에서 혹 보았는지 모른다고 졸리다 못해 주워댈 것 같으면 사내의 보는 눈이 어떻드냐, 표정이 어떻드냐, 무슨 말을 건네드냐, 미주알 고주알 캐고 파며 얼르고 볶아서 넉넉히 십 년 감수는 시킨다.\n\n두 시간이 넘도록 문초를 한 끝에는 사내란 믿지 못할 것, 우리 여성을 잡아 먹으려는 마귀인 것, 연애가 자유이니 신성이니 하는 것도 모두 악마가 지어낸 소리인 것을 입에 침이 없이 열에 띄어서 한참 설법을 하다가 닦지도 않은 방바닥(침대를 쓰기 때문에 방이라 해도 마루바닥이다)에 그대로 무릎을 꿇고 기도를 올린다. 눈에 눈물까지 글썽거리면서 말끝마다 하느님 아버지를 찾아서 악마의 유혹에 떨어지려는 어린 양을 구해달라고 뒤삶고 곱삶는 법이었다.\n\n그리고 둘째로 그의 싫어하는 것은 기숙생을 남자가 면회하러 오는 일이었다. 무슨 핑계를 하든지 기어이 못 보게 하고 만다. 친부모, 친동기간이라도 규칙이 어떠니, 상학중이니 무슨 핑계를 하든지 따돌려 보내기가 일쑤다.\n\n이로 말미암아 학생이 동맹 휴학을 하였고 교장의 설유까지 들었건만 그래도 그 버릇은 고치려 들지 않았다.\n\n이 B사감이 감독하는 그 기숙사에 금년 가을 들어서 괴상한 일이 생겼다. 아니 괴상한 일이 '생겼다'느니보다 '발각되었다'는 것이 마땅할는지 모르리라. 왜 그런고 하면 그 괴상한 일이 언제 '시작된' 것은 귀신밖에 모르니까.\n\n그것은 다른 일이 아니라, 밤이 깊어서 새로 한 점이 되어 모든 기숙생들이 달고 곤한 잠에 떨어졌을 때 난데없는 깔깔대는 웃음과 속살속살대는 말낱이 새어 흐르는 일이었다. 하루 밤이 아니고 이틀 밤이 아닌 다음에야 그런 소리가 잠귀 밝은 기숙생의 귀에 들리기도 하였지만 잠결이라 뒷동산에 구르는 마른 잎의 노래로나, 달빛에 날개를 번뜩이며 울고 가는 기러기의 소리로나 흘러들었다.\n\n그렇지 않으면 도깨비의 장난이나 아닌가 하여 무시무시한 증이 들어서 동무를 깨웠다가 좀처럼 동무는 깨지 않고 제 생각이 너무나 어림없고 어이없음을 깨달으면, 밤소리 멀리 들린다고, 학교 이웃 집에서 이야기를 하거나 또 딴 방에 자는 제 동무들의 잠꼬대로만 여겨서 스스로 안심하고 그대로 자버리기도 하였다."}};</script>
 <script>
 /* ── 광고 설정: 승인받은 뒤 여기만 채우면 됩니다 ── */
 const CONFIG = {
@@ -281,17 +282,22 @@ const CONFIG = {
   }
 };
 
-/* 지문 데이터는 passages.js에 있습니다. START 날짜부터 하루에 한 편씩 순서대로 나옵니다. */
-const START=new Date(2026,10,11);
-const D=window.H5_DATA||{novel:[],nonfic:[]};
-const todayIdx=Math.max(0,Math.round((new Date(new Date().toDateString())-START)/864e5));
-function readFor(k,i){
-  if(k==="novel"){const e=D.novel[i%D.novel.length];
+/* 글은 한 편씩 data/novel-0.json 처럼 따로 받아 옵니다(빌드가 만든 파일). 오늘 읽을 글만 받으니 가볍습니다.
+   진도는 사람마다 따로: 처음 온 날이 1일째, 그 뒤로 새 날에 들어올 때마다 한 편씩 넘어갑니다(건너뛴 날은 세지 않음). */
+const PRE=window.H5_PREFIX||"";
+const META=window.H5_META||{novel:1,nonfic:1};
+const cache={};
+function getPiece(k,i){
+  const key=k+"-"+i;
+  if(!cache[key]) cache[key]=fetch(PRE+"data/"+key+".json").then(r=>{if(!r.ok)throw new Error(r.status);return r.json()});
+  return cache[key];
+}
+function readFor(k,e){
+  if(k==="novel"){
     return {kind:"근대소설 · "+e.year, title:e.of>1?`${e.work} (${e.part}/${e.of})`:e.work,
       by:`${e.author} · 원문 그대로`+(e.of>1?` · ${e.of}회 연재 중 ${e.part}회`:""),
       src:`${e.author}(${e.life})의 저작권은 만료되었습니다. 원문: 위키문헌 「${e.work}」.`+(e.part<e.of?" 다음 회는 내일 이어집니다.":""),
       gloss:e.gloss, p:e.text.split("\n\n"), e}}
-  const e=D.nonfic[i%D.nonfic.length];
   return {kind:"비문학 · "+e.field, title:e.title, by:"수능 독서 영역 형식으로 새로 쓴 지문",
     src:"이 지문은 5분 뽀모도로가 직접 쓴 글입니다.", gloss:e.gloss, p:e.text.split("\n\n"), e};
 }
@@ -311,27 +317,56 @@ function streakInfo(){
 function renderStreak(){const s=streakInfo();$("streak").textContent=s.n;$("todayState").textContent=s.today?"완료":"아직"}
 function markDone(){const days=store.get("h5_days",[]);const k=dayKey();if(!days.includes(k)){days.push(k);store.set("h5_days",days.slice(-400))}renderStreak()}
 
-/* 글별 페이지에서는 H5_FIXED로 한 편을 고정해서 보여 줍니다 */
+/* 글별 페이지에서는 H5_FIXED({k,i,e})로 한 편을 고정해서 보여 줍니다 */
 const FIX=window.H5_FIXED||null;
-let cur=FIX?FIX.k:"novel", dayIdx=todayIdx, curRead=null;
+const OTHER={novel:"nonfic",nonfic:"novel"};
+let cur=FIX?FIX.k:(location.hash==="#nonfic"?"nonfic":"novel"), curRead=null;
+const topI={}, view={};
 if(FIX){document.querySelector(".tabs").hidden=true;document.querySelector(".daynav").hidden=true}
 
-function render(k){
-  cur=k;
+/* 이 사람의 진도(0부터). 새 날에 처음 열 때 한 칸 넘어간다 */
+function progress(k){
+  const P=store.get("h5_prog",{}), t=dayKey();
+  let p=P[k];
+  if(!p) p={i:0,d:t}; else if(p.d!==t) p={i:p.i+1,d:t};
+  P[k]=p; store.set("h5_prog",P); return p.i;
+}
+
+let renderSeq=0;
+async function render(k){
+  cur=k; const seq=++renderSeq;
   document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.k===k?"true":"false"));
-  const r=curRead=readFor(k,FIX?FIX.i:dayIdx);
+  if(!FIX && topI[k]===undefined){topI[k]=progress(k); view[k]=topI[k]}
+  const i=FIX?FIX.i:view[k];
+  let e;
+  try{ e=FIX?FIX.e:await getPiece(k,i%(META[k]||1)); }
+  catch(err){ $("title").textContent="글을 불러오지 못했어요"; $("text").innerHTML="<p>인터넷 연결을 확인하고 새로고침해 주세요.</p>"; return; }
+  if(seq!==renderSeq) return;
+  const r=curRead=readFor(k,e);
   $("kind").textContent=r.kind; $("title").textContent=r.title; $("by").textContent=r.by; $("src").textContent=r.src;
   $("text").innerHTML=""; r.p.forEach(t=>{const p=document.createElement("p");
     if(t==="(중략)") p.className="skip"; else if(/^["“'‘―<(…]/.test(t)) p.className="d";
     p.textContent=t; $("text").appendChild(p)});
-  $("gloss").innerHTML=r.gloss.map(([w,d])=>`<div><b>${w}</b>${d}</div>`).join("");
-  const dt=new Date(START); dt.setDate(dt.getDate()+dayIdx);
-  $("dayLabel").textContent=`${dt.getMonth()+1}월 ${dt.getDate()}일의 글`+(dayIdx===todayIdx?" · 오늘":"");
-  $("prevDay").disabled=dayIdx===0; $("nextDay").disabled=dayIdx>=todayIdx;
+  $("gloss").innerHTML=""; r.gloss.forEach(([w,d])=>{const g=document.createElement("div");g.innerHTML="<b></b>";g.querySelector("b").textContent=w;g.appendChild(document.createTextNode(d));$("gloss").appendChild(g)});
+  if(!FIX){
+    $("dayLabel").textContent=`${i+1}일째 글`+(i===topI[k]?" · 오늘":"");
+    $("prevDay").disabled=i===0; $("nextDay").disabled=i>=topI[k];
+  }
+  const o=OTHER[k], sw=$("switchBtn");
+  sw.textContent=o==="nonfic"?"이어서 비문학 읽기 →":"이어서 소설 읽기 →";
+  sw.href=PRE+"index.html#"+o;
+  $("done").hidden=true;
+  if(typeof resetTimer==="function") resetTimer();
   renderShop(k);
 }
-$("prevDay").onclick=()=>{if(dayIdx>0){dayIdx--;render(cur);window.scrollTo(0,0)}};
-$("nextDay").onclick=()=>{if(dayIdx<todayIdx){dayIdx++;render(cur);window.scrollTo(0,0)}};
+$("prevDay").onclick=()=>{if(view[cur]>0){view[cur]--;render(cur);window.scrollTo(0,0)}};
+$("nextDay").onclick=()=>{if(view[cur]<topI[cur]){view[cur]++;render(cur);window.scrollTo(0,0)}};
+$("switchBtn").onclick=ev=>{
+  if(FIX) return;            // 글별 페이지에서는 링크대로 첫 화면으로 이동
+  ev.preventDefault(); const o=OTHER[cur];
+  try{history.replaceState(null,"","#"+o)}catch(e){}
+  render(o); window.scrollTo(0,0);
+};
 function renderShop(k){
   const S=CONFIG.shop, a=curRead.e.author;
   const list=k==="novel"?[{t:a+" 단편선",d:`「${curRead.e.work}」이 실린 작품집`,link:S.authors[a]||""},S.novelMore,S.common,S.home]:[...S.nonfic,S.common,S.home];
@@ -398,7 +433,8 @@ $("startBtn").onclick=()=>{
   if(timer){stop();$("startBtn").textContent="이어서";$("hint").textContent="잠깐 멈췄어요"}
   else{timer=setInterval(tick,1000);$("startBtn").textContent="멈춤";$("hint").textContent="휴대폰 알림은 잠시 꺼 두세요";draw()}
 };
-$("resetBtn").onclick=()=>{stop();left=TOTAL;draw();$("startBtn").textContent="시작";$("hint").textContent="시작을 누르고 끝까지 읽어 보세요"};
+function resetTimer(){stop();left=TOTAL;draw();$("startBtn").textContent="시작";$("hint").textContent="시작을 누르고 끝까지 읽어 보세요"}
+$("resetBtn").onclick=resetTimer;
 
 /* 읽기 색: 고른 색을 이 브라우저에 기억합니다 */
 function setReader(r){

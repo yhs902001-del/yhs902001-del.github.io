@@ -97,6 +97,8 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
 .gloss{border-top:1px solid var(--line);padding-top:14px;margin-top:8px;font-size:.88rem;color:var(--muted);display:grid;gap:4px}
 .gloss b{color:var(--ink);font-weight:600;margin-right:6px}
 .src{font-size:.78rem;color:var(--muted);margin-top:14px}
+.next{display:flex;justify-content:center;margin:26px 0 4px}
+.next .btn{display:inline-block;padding:14px 24px;font-size:1rem;text-decoration:none}
 .quiz{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:20px}
 .quiz h3{margin:0;font:600 1.05rem var(--f-ui)}
 .q p{margin:0 0 10px;font-weight:500;line-height:1.6}
@@ -164,7 +166,6 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
     <button class="tab" role="tab" id="tab-novel" aria-selected="true" data-k="novel">오늘의 소설</button>
     <button class="tab" role="tab" id="tab-nonfic" aria-selected="false" data-k="nonfic">오늘의 비문학</button>
   </div>
-<nav class="fixednav"><a href="../read/entropy.html">← 시간은 왜 한쪽으로만 흐르는가</a><a href="../list.html">전체 글</a><a href="../read/plate-tectonics.html">대륙은 움직인다 →</a></nav>
   <div class="daynav">
     <button class="btn sm" id="prevDay">← 이전 글</button>
     <span id="dayLabel"></span>
@@ -210,6 +211,7 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
 </div>
     <div class="gloss" id="gloss"></div>
     <div class="src" id="src"></div>
+    <div class="next"><a class="btn primary" id="switchBtn" href="#">이어서 비문학 읽기 →</a></div>
   </article>
 
   <aside class="shop" aria-label="오늘의 글, 책으로">
@@ -231,13 +233,12 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
   </section>
 </div>
 
-<script>window.H5_FIXED={"k":"nonfic","i":11}</script>
 <footer class="foot" style="padding-left:max(0px,env(safe-area-inset-left,0px))">
-  <nav><a href="../index.html">오늘의 글</a><a href="../list.html">전체 글</a><a href="../about.html">소개</a><a href="../privacy.html">개인정보처리방침</a></nav>
+  <nav><a href="../index.html">오늘의 글</a><a href="../about.html">소개</a><a href="../privacy.html">개인정보처리방침</a></nav>
   <div>소설은 저작권 보호 기간이 끝난 작품을 위키문헌 원문 그대로 싣고, 비문학 지문은 5분 뽀모도로가 직접 씁니다.</div>
   <div>© 2026 5분 뽀모도로</div>
 </footer>
-<script src="../passages.js"></script>
+<script>window.H5_PREFIX="../";window.H5_META={"novel":60,"nonfic":60};window.H5_FIXED={"k":"nonfic","i":11,"e":{"field":"심리","title":"우리는 왜 맞는 증거만 찾는가","gloss":[["확증 편향","자기 생각을 뒷받침하는 정보만 찾는 경향"],["반증","주장이 틀렸음을 보여 주는 증거"],["가설","검증되기 전의 잠정적 설명"]],"text":"1960년 영국의 심리학자 웨이슨은 간단한 실험을 고안했다. 참가자에게 '2, 4, 6'이라는 세 숫자를 보여 주고, 이 숫자들이 어떤 규칙을 따르는지 알아맞히게 한 것이다. 참가자는 세 숫자를 직접 만들어 제시할 수 있었고, 실험자는 그것이 규칙에 맞는지 아닌지만 알려 주었다. 대부분의 참가자는 곧 '2씩 커지는 짝수'라는 가설을 세우고 '8, 10, 12'나 '20, 22, 24' 같은 숫자를 제시했다. 실험자는 매번 규칙에 맞는다고 답했고, 참가자들은 확신을 갖고 자신의 가설을 정답으로 제출했다. 그러나 대부분 틀렸다. 실제 규칙은 '커지는 순서의 아무 세 수'였다.\n\n이 실험에서 참가자들이 정답에 이르지 못한 이유는 지능이 부족해서가 아니라 검증하는 방식에 있었다. 그들은 자기 가설에 들어맞는 사례만 시험했다. 가설이 맞는지 확인하려면 오히려 '1, 2, 3'이나 '6, 4, 2'처럼 가설과 어긋나는 사례를 던져 보아야 한다. 그런 숫자가 규칙에 맞는다는 답을 들으면 자기 가설이 너무 좁았음을 알 수 있기 때문이다. 이처럼 사람들이 자신이 이미 믿는 바를 뒷받침하는 정보는 적극적으로 찾고 받아들이면서, 그와 반대되는 정보는 찾지 않거나 가볍게 넘기는 경향을 확증 편향이라 한다.\n\n확증 편향은 정보를 찾는 단계뿐 아니라 해석하고 기억하는 단계에서도 나타난다. 똑같은 연구 결과를 보더라도 사람들은 자기 입장에 유리한 결과는 믿을 만하다고 평가하고, 불리한 결과에서는 방법상의 결점을 찾아내려 한다. 또 자기 예측이 맞았던 경우는 오래 기억하고 틀렸던 경우는 쉽게 잊는다. 꿈이 맞았던 경험만 떠올리며 예지몽을 믿게 되는 것도 그 예이다.\n\n과학은 이 경향을 거스르도록 설계된 제도라고 할 수 있다. 과학 철학자 포퍼는 좋은 이론이란 맞는 사례를 많이 모은 이론이 아니라, 틀릴 수 있는 조건을 분명히 제시하고 그 반증 시도를 견뎌 낸 이론이라고 보았다. 개인이 확증 편향에서 완전히 벗어나기는 어렵지만, 자기 생각이 틀렸다면 어떤 증거가 나와야 하는지를 먼저 물어보는 습관은 판단의 정확성을 높이는 데 도움이 된다.\n\n확증 편향이 강하게 나타나는 것은 그 믿음이 자신의 정체성이나 소속 집단과 얽혀 있을 때이다. 정치적 견해처럼 자신이 누구인지를 드러내는 믿음에 반하는 증거는 단순한 정보가 아니라 자신에 대한 공격처럼 느껴지기 쉽다. 이때 사람들은 반대 증거를 접하고도 기존 믿음을 버리기보다 오히려 더 단단히 붙드는 모습을 보이기도 한다. 또 비슷한 생각을 가진 사람들끼리만 정보를 주고받는 환경에서는 서로의 믿음을 확인해 주는 정보만 되풀이되어, 집단 전체가 한쪽으로 치우치는 현상이 강화될 수 있다.\n\n이를 줄이기 위해 제안되는 방법 가운데 하나는 일부러 반대편의 입장에 서 보는 것이다. 어떤 결론에 도달했을 때 '내가 틀렸다면 그 이유는 무엇일까'를 적어 보게 하면 판단의 치우침이 줄어든다는 연구 결과가 있다. 중요한 결정을 내리는 조직에서 반대 의견을 전담하는 역할을 따로 두는 것도 같은 원리를 활용한 것이다."}};</script>
 <script>
 /* ── 광고 설정: 승인받은 뒤 여기만 채우면 됩니다 ── */
 const CONFIG = {
@@ -261,17 +262,22 @@ const CONFIG = {
   }
 };
 
-/* 지문 데이터는 passages.js에 있습니다. START 날짜부터 하루에 한 편씩 순서대로 나옵니다. */
-const START=new Date(2026,10,11);
-const D=window.H5_DATA||{novel:[],nonfic:[]};
-const todayIdx=Math.max(0,Math.round((new Date(new Date().toDateString())-START)/864e5));
-function readFor(k,i){
-  if(k==="novel"){const e=D.novel[i%D.novel.length];
+/* 글은 한 편씩 data/novel-0.json 처럼 따로 받아 옵니다(빌드가 만든 파일). 오늘 읽을 글만 받으니 가볍습니다.
+   진도는 사람마다 따로: 처음 온 날이 1일째, 그 뒤로 새 날에 들어올 때마다 한 편씩 넘어갑니다(건너뛴 날은 세지 않음). */
+const PRE=window.H5_PREFIX||"";
+const META=window.H5_META||{novel:1,nonfic:1};
+const cache={};
+function getPiece(k,i){
+  const key=k+"-"+i;
+  if(!cache[key]) cache[key]=fetch(PRE+"data/"+key+".json").then(r=>{if(!r.ok)throw new Error(r.status);return r.json()});
+  return cache[key];
+}
+function readFor(k,e){
+  if(k==="novel"){
     return {kind:"근대소설 · "+e.year, title:e.of>1?`${e.work} (${e.part}/${e.of})`:e.work,
       by:`${e.author} · 원문 그대로`+(e.of>1?` · ${e.of}회 연재 중 ${e.part}회`:""),
       src:`${e.author}(${e.life})의 저작권은 만료되었습니다. 원문: 위키문헌 「${e.work}」.`+(e.part<e.of?" 다음 회는 내일 이어집니다.":""),
       gloss:e.gloss, p:e.text.split("\n\n"), e}}
-  const e=D.nonfic[i%D.nonfic.length];
   return {kind:"비문학 · "+e.field, title:e.title, by:"수능 독서 영역 형식으로 새로 쓴 지문",
     src:"이 지문은 5분 뽀모도로가 직접 쓴 글입니다.", gloss:e.gloss, p:e.text.split("\n\n"), e};
 }
@@ -291,27 +297,56 @@ function streakInfo(){
 function renderStreak(){const s=streakInfo();$("streak").textContent=s.n;$("todayState").textContent=s.today?"완료":"아직"}
 function markDone(){const days=store.get("h5_days",[]);const k=dayKey();if(!days.includes(k)){days.push(k);store.set("h5_days",days.slice(-400))}renderStreak()}
 
-/* 글별 페이지에서는 H5_FIXED로 한 편을 고정해서 보여 줍니다 */
+/* 글별 페이지에서는 H5_FIXED({k,i,e})로 한 편을 고정해서 보여 줍니다 */
 const FIX=window.H5_FIXED||null;
-let cur=FIX?FIX.k:"novel", dayIdx=todayIdx, curRead=null;
+const OTHER={novel:"nonfic",nonfic:"novel"};
+let cur=FIX?FIX.k:(location.hash==="#nonfic"?"nonfic":"novel"), curRead=null;
+const topI={}, view={};
 if(FIX){document.querySelector(".tabs").hidden=true;document.querySelector(".daynav").hidden=true}
 
-function render(k){
-  cur=k;
+/* 이 사람의 진도(0부터). 새 날에 처음 열 때 한 칸 넘어간다 */
+function progress(k){
+  const P=store.get("h5_prog",{}), t=dayKey();
+  let p=P[k];
+  if(!p) p={i:0,d:t}; else if(p.d!==t) p={i:p.i+1,d:t};
+  P[k]=p; store.set("h5_prog",P); return p.i;
+}
+
+let renderSeq=0;
+async function render(k){
+  cur=k; const seq=++renderSeq;
   document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.k===k?"true":"false"));
-  const r=curRead=readFor(k,FIX?FIX.i:dayIdx);
+  if(!FIX && topI[k]===undefined){topI[k]=progress(k); view[k]=topI[k]}
+  const i=FIX?FIX.i:view[k];
+  let e;
+  try{ e=FIX?FIX.e:await getPiece(k,i%(META[k]||1)); }
+  catch(err){ $("title").textContent="글을 불러오지 못했어요"; $("text").innerHTML="<p>인터넷 연결을 확인하고 새로고침해 주세요.</p>"; return; }
+  if(seq!==renderSeq) return;
+  const r=curRead=readFor(k,e);
   $("kind").textContent=r.kind; $("title").textContent=r.title; $("by").textContent=r.by; $("src").textContent=r.src;
   $("text").innerHTML=""; r.p.forEach(t=>{const p=document.createElement("p");
     if(t==="(중략)") p.className="skip"; else if(/^["“'‘―<(…]/.test(t)) p.className="d";
     p.textContent=t; $("text").appendChild(p)});
-  $("gloss").innerHTML=r.gloss.map(([w,d])=>`<div><b>${w}</b>${d}</div>`).join("");
-  const dt=new Date(START); dt.setDate(dt.getDate()+dayIdx);
-  $("dayLabel").textContent=`${dt.getMonth()+1}월 ${dt.getDate()}일의 글`+(dayIdx===todayIdx?" · 오늘":"");
-  $("prevDay").disabled=dayIdx===0; $("nextDay").disabled=dayIdx>=todayIdx;
+  $("gloss").innerHTML=""; r.gloss.forEach(([w,d])=>{const g=document.createElement("div");g.innerHTML="<b></b>";g.querySelector("b").textContent=w;g.appendChild(document.createTextNode(d));$("gloss").appendChild(g)});
+  if(!FIX){
+    $("dayLabel").textContent=`${i+1}일째 글`+(i===topI[k]?" · 오늘":"");
+    $("prevDay").disabled=i===0; $("nextDay").disabled=i>=topI[k];
+  }
+  const o=OTHER[k], sw=$("switchBtn");
+  sw.textContent=o==="nonfic"?"이어서 비문학 읽기 →":"이어서 소설 읽기 →";
+  sw.href=PRE+"index.html#"+o;
+  $("done").hidden=true;
+  if(typeof resetTimer==="function") resetTimer();
   renderShop(k);
 }
-$("prevDay").onclick=()=>{if(dayIdx>0){dayIdx--;render(cur);window.scrollTo(0,0)}};
-$("nextDay").onclick=()=>{if(dayIdx<todayIdx){dayIdx++;render(cur);window.scrollTo(0,0)}};
+$("prevDay").onclick=()=>{if(view[cur]>0){view[cur]--;render(cur);window.scrollTo(0,0)}};
+$("nextDay").onclick=()=>{if(view[cur]<topI[cur]){view[cur]++;render(cur);window.scrollTo(0,0)}};
+$("switchBtn").onclick=ev=>{
+  if(FIX) return;            // 글별 페이지에서는 링크대로 첫 화면으로 이동
+  ev.preventDefault(); const o=OTHER[cur];
+  try{history.replaceState(null,"","#"+o)}catch(e){}
+  render(o); window.scrollTo(0,0);
+};
 function renderShop(k){
   const S=CONFIG.shop, a=curRead.e.author;
   const list=k==="novel"?[{t:a+" 단편선",d:`「${curRead.e.work}」이 실린 작품집`,link:S.authors[a]||""},S.novelMore,S.common,S.home]:[...S.nonfic,S.common,S.home];
@@ -378,7 +413,8 @@ $("startBtn").onclick=()=>{
   if(timer){stop();$("startBtn").textContent="이어서";$("hint").textContent="잠깐 멈췄어요"}
   else{timer=setInterval(tick,1000);$("startBtn").textContent="멈춤";$("hint").textContent="휴대폰 알림은 잠시 꺼 두세요";draw()}
 };
-$("resetBtn").onclick=()=>{stop();left=TOTAL;draw();$("startBtn").textContent="시작";$("hint").textContent="시작을 누르고 끝까지 읽어 보세요"};
+function resetTimer(){stop();left=TOTAL;draw();$("startBtn").textContent="시작";$("hint").textContent="시작을 누르고 끝까지 읽어 보세요"}
+$("resetBtn").onclick=resetTimer;
 
 /* 읽기 색: 고른 색을 이 브라우저에 기억합니다 */
 function setReader(r){

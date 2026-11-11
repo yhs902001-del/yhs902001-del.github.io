@@ -97,6 +97,8 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
 .gloss{border-top:1px solid var(--line);padding-top:14px;margin-top:8px;font-size:.88rem;color:var(--muted);display:grid;gap:4px}
 .gloss b{color:var(--ink);font-weight:600;margin-right:6px}
 .src{font-size:.78rem;color:var(--muted);margin-top:14px}
+.next{display:flex;justify-content:center;margin:26px 0 4px}
+.next .btn{display:inline-block;padding:14px 24px;font-size:1rem;text-decoration:none}
 .quiz{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:20px}
 .quiz h3{margin:0;font:600 1.05rem var(--f-ui)}
 .q p{margin:0 0 10px;font-weight:500;line-height:1.6}
@@ -164,7 +166,6 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
     <button class="tab" role="tab" id="tab-novel" aria-selected="true" data-k="novel">오늘의 소설</button>
     <button class="tab" role="tab" id="tab-nonfic" aria-selected="false" data-k="nonfic">오늘의 비문학</button>
   </div>
-<nav class="fixednav"><a href="../read/compression.html">← 파일은 어떻게 작아지는가</a><a href="../list.html">전체 글</a><span></span></nav>
   <div class="daynav">
     <button class="btn sm" id="prevDay">← 이전 글</button>
     <span id="dayLabel"></span>
@@ -210,6 +211,7 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
 </div>
     <div class="gloss" id="gloss"></div>
     <div class="src" id="src"></div>
+    <div class="next"><a class="btn primary" id="switchBtn" href="#">이어서 비문학 읽기 →</a></div>
   </article>
 
   <aside class="shop" aria-label="오늘의 글, 책으로">
@@ -231,13 +233,12 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
   </section>
 </div>
 
-<script>window.H5_FIXED={"k":"nonfic","i":14}</script>
 <footer class="foot" style="padding-left:max(0px,env(safe-area-inset-left,0px))">
-  <nav><a href="../index.html">오늘의 글</a><a href="../list.html">전체 글</a><a href="../about.html">소개</a><a href="../privacy.html">개인정보처리방침</a></nav>
+  <nav><a href="../index.html">오늘의 글</a><a href="../about.html">소개</a><a href="../privacy.html">개인정보처리방침</a></nav>
   <div>소설은 저작권 보호 기간이 끝난 작품을 위키문헌 원문 그대로 싣고, 비문학 지문은 5분 뽀모도로가 직접 씁니다.</div>
   <div>© 2026 5분 뽀모도로</div>
 </footer>
-<script src="../passages.js"></script>
+<script>window.H5_PREFIX="../";window.H5_META={"novel":60,"nonfic":60};window.H5_FIXED={"k":"nonfic","i":14,"e":{"field":"사회","title":"공유지는 반드시 비극으로 끝나는가","gloss":[["공유 자원","여럿이 함께 쓰지만 쓸수록 줄어드는 자원"],["무임승차","비용은 내지 않고 이익만 누리는 것"],["자치","스스로 규칙을 정해 다스림"]],"text":"여러 목동이 함께 쓰는 목초지가 있다고 하자. 목동 한 사람이 소를 한 마리 더 풀면, 그 소에서 얻는 이익은 고스란히 그의 것이 된다. 반면 풀이 줄어드는 손해는 모든 목동이 나누어 진다. 그러므로 각자는 소를 늘리는 것이 이익이라고 판단하고, 모두가 그렇게 행동한 결과 목초지는 황폐해져 결국 모두가 손해를 본다. 1968년 생물학자 하딘은 이를 '공유지의 비극'이라 불렀다. 어장의 물고기, 지하수, 깨끗한 공기처럼 누구나 이용할 수 있지만 쓸수록 줄어드는 자원은 개인의 합리적 선택이 모여 집단 전체의 파국을 낳는 구조를 지니고 있다는 것이다.\n\n하딘의 주장 이후 오랫동안 이 문제의 해법은 두 가지로 여겨졌다. 하나는 정부가 자원을 관리하며 이용량을 규제하는 방식이고, 다른 하나는 자원을 나누어 개인에게 소유권을 주는 방식이다. 주인이 분명해지면 각자 자기 몫을 아껴 쓸 것이라는 생각이다. 그러나 두 방법 모두 한계가 있었다. 정부는 현장의 사정을 속속들이 알기 어렵고 감시에 큰 비용이 들며, 물고기나 지하수처럼 경계를 나누기 어려운 자원은 사유화하기도 쉽지 않다.\n\n정치경제학자 오스트롬은 세계 여러 지역의 사례를 조사해 제3의 길이 있음을 보여 주었다. 스위스의 산간 목초지, 일본의 공동 산림, 스페인의 관개 수로처럼 수백 년 동안 공유 자원을 고갈시키지 않고 관리해 온 공동체들이 있었던 것이다. 이 공동체들은 정부의 명령이나 사유화 없이 이용자들이 스스로 규칙을 만들고 지켜 왔다. 오스트롬은 이런 성공 사례에 공통된 조건을 정리했다. 누가 자원을 이용할 수 있는지 경계가 분명할 것, 규칙을 정하는 과정에 이용자들이 참여할 것, 규칙 위반을 감시하는 사람이 이용자에게 책임을 질 것, 위반에 대한 제재가 처음에는 가볍고 반복될수록 무거워질 것, 갈등을 값싸게 해결할 수 있는 장치가 있을 것 등이다.\n\n오스트롬의 연구는 공유지의 비극이 피할 수 없는 운명이 아니라, 특정한 조건에서 일어나는 결과임을 보여 주었다. 사람들이 서로 소통하고 신뢰를 쌓으며 규칙을 함께 만들 수 있다면, 공동의 자원을 지속적으로 관리하는 것이 가능하다는 것이다. 이 공로로 그는 2009년 여성 최초로 노벨 경제학상을 받았다. 다만 기후 변화처럼 이용자가 전 세계에 흩어져 있고 서로 얼굴을 맞댈 수 없는 문제에 이 원리를 어떻게 적용할 것인가는 여전히 어려운 과제로 남아 있다.\n\n공유 자원의 문제는 경제학에서 재화를 분류하는 방식과도 관련이 있다. 재화는 다른 사람의 이용을 막을 수 있는지, 그리고 한 사람이 쓰면 다른 사람이 쓸 몫이 줄어드는지에 따라 나눌 수 있다. 이용을 막을 수 있고 쓸수록 줄어드는 것은 일반적인 사유재이고, 이용을 막기 어렵고 써도 줄지 않는 것은 국방이나 등대 같은 공공재이다. 공유 자원은 이용을 막기는 어렵지만 쓸수록 줄어든다는 점에서 이 두 가지와 구별된다. 이용을 막기 어렵다는 성질 때문에 무임승차가 생기고, 쓸수록 줄어든다는 성질 때문에 고갈이 일어나는 것이다.\n\n오늘날 공유지의 개념은 물리적 자원을 넘어 확장되고 있다. 위키백과나 공개 소프트웨어처럼 많은 사람이 자발적으로 기여하고 누구나 이용하는 지식 자원도 일종의 공유지로 볼 수 있다. 이런 디지털 공유지는 써도 줄지 않는다는 점에서 목초지와 다르지만, 기여하는 사람이 줄어들면 품질이 떨어지는 문제를 안고 있다. 오스트롬이 강조한 참여와 규칙, 신뢰의 원리가 이 새로운 공유지에서도 여전히 유효한지 많은 연구자가 관심을 기울이고 있다."}};</script>
 <script>
 /* ── 광고 설정: 승인받은 뒤 여기만 채우면 됩니다 ── */
 const CONFIG = {
@@ -261,17 +262,22 @@ const CONFIG = {
   }
 };
 
-/* 지문 데이터는 passages.js에 있습니다. START 날짜부터 하루에 한 편씩 순서대로 나옵니다. */
-const START=new Date(2026,10,11);
-const D=window.H5_DATA||{novel:[],nonfic:[]};
-const todayIdx=Math.max(0,Math.round((new Date(new Date().toDateString())-START)/864e5));
-function readFor(k,i){
-  if(k==="novel"){const e=D.novel[i%D.novel.length];
+/* 글은 한 편씩 data/novel-0.json 처럼 따로 받아 옵니다(빌드가 만든 파일). 오늘 읽을 글만 받으니 가볍습니다.
+   진도는 사람마다 따로: 처음 온 날이 1일째, 그 뒤로 새 날에 들어올 때마다 한 편씩 넘어갑니다(건너뛴 날은 세지 않음). */
+const PRE=window.H5_PREFIX||"";
+const META=window.H5_META||{novel:1,nonfic:1};
+const cache={};
+function getPiece(k,i){
+  const key=k+"-"+i;
+  if(!cache[key]) cache[key]=fetch(PRE+"data/"+key+".json").then(r=>{if(!r.ok)throw new Error(r.status);return r.json()});
+  return cache[key];
+}
+function readFor(k,e){
+  if(k==="novel"){
     return {kind:"근대소설 · "+e.year, title:e.of>1?`${e.work} (${e.part}/${e.of})`:e.work,
       by:`${e.author} · 원문 그대로`+(e.of>1?` · ${e.of}회 연재 중 ${e.part}회`:""),
       src:`${e.author}(${e.life})의 저작권은 만료되었습니다. 원문: 위키문헌 「${e.work}」.`+(e.part<e.of?" 다음 회는 내일 이어집니다.":""),
       gloss:e.gloss, p:e.text.split("\n\n"), e}}
-  const e=D.nonfic[i%D.nonfic.length];
   return {kind:"비문학 · "+e.field, title:e.title, by:"수능 독서 영역 형식으로 새로 쓴 지문",
     src:"이 지문은 5분 뽀모도로가 직접 쓴 글입니다.", gloss:e.gloss, p:e.text.split("\n\n"), e};
 }
@@ -291,27 +297,56 @@ function streakInfo(){
 function renderStreak(){const s=streakInfo();$("streak").textContent=s.n;$("todayState").textContent=s.today?"완료":"아직"}
 function markDone(){const days=store.get("h5_days",[]);const k=dayKey();if(!days.includes(k)){days.push(k);store.set("h5_days",days.slice(-400))}renderStreak()}
 
-/* 글별 페이지에서는 H5_FIXED로 한 편을 고정해서 보여 줍니다 */
+/* 글별 페이지에서는 H5_FIXED({k,i,e})로 한 편을 고정해서 보여 줍니다 */
 const FIX=window.H5_FIXED||null;
-let cur=FIX?FIX.k:"novel", dayIdx=todayIdx, curRead=null;
+const OTHER={novel:"nonfic",nonfic:"novel"};
+let cur=FIX?FIX.k:(location.hash==="#nonfic"?"nonfic":"novel"), curRead=null;
+const topI={}, view={};
 if(FIX){document.querySelector(".tabs").hidden=true;document.querySelector(".daynav").hidden=true}
 
-function render(k){
-  cur=k;
+/* 이 사람의 진도(0부터). 새 날에 처음 열 때 한 칸 넘어간다 */
+function progress(k){
+  const P=store.get("h5_prog",{}), t=dayKey();
+  let p=P[k];
+  if(!p) p={i:0,d:t}; else if(p.d!==t) p={i:p.i+1,d:t};
+  P[k]=p; store.set("h5_prog",P); return p.i;
+}
+
+let renderSeq=0;
+async function render(k){
+  cur=k; const seq=++renderSeq;
   document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.k===k?"true":"false"));
-  const r=curRead=readFor(k,FIX?FIX.i:dayIdx);
+  if(!FIX && topI[k]===undefined){topI[k]=progress(k); view[k]=topI[k]}
+  const i=FIX?FIX.i:view[k];
+  let e;
+  try{ e=FIX?FIX.e:await getPiece(k,i%(META[k]||1)); }
+  catch(err){ $("title").textContent="글을 불러오지 못했어요"; $("text").innerHTML="<p>인터넷 연결을 확인하고 새로고침해 주세요.</p>"; return; }
+  if(seq!==renderSeq) return;
+  const r=curRead=readFor(k,e);
   $("kind").textContent=r.kind; $("title").textContent=r.title; $("by").textContent=r.by; $("src").textContent=r.src;
   $("text").innerHTML=""; r.p.forEach(t=>{const p=document.createElement("p");
     if(t==="(중략)") p.className="skip"; else if(/^["“'‘―<(…]/.test(t)) p.className="d";
     p.textContent=t; $("text").appendChild(p)});
-  $("gloss").innerHTML=r.gloss.map(([w,d])=>`<div><b>${w}</b>${d}</div>`).join("");
-  const dt=new Date(START); dt.setDate(dt.getDate()+dayIdx);
-  $("dayLabel").textContent=`${dt.getMonth()+1}월 ${dt.getDate()}일의 글`+(dayIdx===todayIdx?" · 오늘":"");
-  $("prevDay").disabled=dayIdx===0; $("nextDay").disabled=dayIdx>=todayIdx;
+  $("gloss").innerHTML=""; r.gloss.forEach(([w,d])=>{const g=document.createElement("div");g.innerHTML="<b></b>";g.querySelector("b").textContent=w;g.appendChild(document.createTextNode(d));$("gloss").appendChild(g)});
+  if(!FIX){
+    $("dayLabel").textContent=`${i+1}일째 글`+(i===topI[k]?" · 오늘":"");
+    $("prevDay").disabled=i===0; $("nextDay").disabled=i>=topI[k];
+  }
+  const o=OTHER[k], sw=$("switchBtn");
+  sw.textContent=o==="nonfic"?"이어서 비문학 읽기 →":"이어서 소설 읽기 →";
+  sw.href=PRE+"index.html#"+o;
+  $("done").hidden=true;
+  if(typeof resetTimer==="function") resetTimer();
   renderShop(k);
 }
-$("prevDay").onclick=()=>{if(dayIdx>0){dayIdx--;render(cur);window.scrollTo(0,0)}};
-$("nextDay").onclick=()=>{if(dayIdx<todayIdx){dayIdx++;render(cur);window.scrollTo(0,0)}};
+$("prevDay").onclick=()=>{if(view[cur]>0){view[cur]--;render(cur);window.scrollTo(0,0)}};
+$("nextDay").onclick=()=>{if(view[cur]<topI[cur]){view[cur]++;render(cur);window.scrollTo(0,0)}};
+$("switchBtn").onclick=ev=>{
+  if(FIX) return;            // 글별 페이지에서는 링크대로 첫 화면으로 이동
+  ev.preventDefault(); const o=OTHER[cur];
+  try{history.replaceState(null,"","#"+o)}catch(e){}
+  render(o); window.scrollTo(0,0);
+};
 function renderShop(k){
   const S=CONFIG.shop, a=curRead.e.author;
   const list=k==="novel"?[{t:a+" 단편선",d:`「${curRead.e.work}」이 실린 작품집`,link:S.authors[a]||""},S.novelMore,S.common,S.home]:[...S.nonfic,S.common,S.home];
@@ -378,7 +413,8 @@ $("startBtn").onclick=()=>{
   if(timer){stop();$("startBtn").textContent="이어서";$("hint").textContent="잠깐 멈췄어요"}
   else{timer=setInterval(tick,1000);$("startBtn").textContent="멈춤";$("hint").textContent="휴대폰 알림은 잠시 꺼 두세요";draw()}
 };
-$("resetBtn").onclick=()=>{stop();left=TOTAL;draw();$("startBtn").textContent="시작";$("hint").textContent="시작을 누르고 끝까지 읽어 보세요"};
+function resetTimer(){stop();left=TOTAL;draw();$("startBtn").textContent="시작";$("hint").textContent="시작을 누르고 끝까지 읽어 보세요"}
+$("resetBtn").onclick=resetTimer;
 
 /* 읽기 색: 고른 색을 이 브라우저에 기억합니다 */
 function setReader(r){

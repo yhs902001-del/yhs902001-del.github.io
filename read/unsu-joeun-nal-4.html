@@ -97,6 +97,8 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
 .gloss{border-top:1px solid var(--line);padding-top:14px;margin-top:8px;font-size:.88rem;color:var(--muted);display:grid;gap:4px}
 .gloss b{color:var(--ink);font-weight:600;margin-right:6px}
 .src{font-size:.78rem;color:var(--muted);margin-top:14px}
+.next{display:flex;justify-content:center;margin:26px 0 4px}
+.next .btn{display:inline-block;padding:14px 24px;font-size:1rem;text-decoration:none}
 .quiz{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:20px}
 .quiz h3{margin:0;font:600 1.05rem var(--f-ui)}
 .q p{margin:0 0 10px;font-weight:500;line-height:1.6}
@@ -164,7 +166,6 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
     <button class="tab" role="tab" id="tab-novel" aria-selected="true" data-k="novel">오늘의 소설</button>
     <button class="tab" role="tab" id="tab-nonfic" aria-selected="false" data-k="nonfic">오늘의 비문학</button>
   </div>
-<nav class="fixednav"><a href="../read/unsu-joeun-nal-3.html">← 운수 좋은 날 3회</a><a href="../list.html">전체 글</a><a href="../read/b-sagam-1.html">B사감과 러브레터 1회 →</a></nav>
   <div class="daynav">
     <button class="btn sm" id="prevDay">← 이전 글</button>
     <span id="dayLabel"></span>
@@ -234,6 +235,7 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
 </div>
     <div class="gloss" id="gloss"></div>
     <div class="src" id="src"></div>
+    <div class="next"><a class="btn primary" id="switchBtn" href="#">이어서 비문학 읽기 →</a></div>
   </article>
 
   <aside class="shop" aria-label="오늘의 글, 책으로">
@@ -255,13 +257,12 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
   </section>
 </div>
 
-<script>window.H5_FIXED={"k":"novel","i":5}</script>
 <footer class="foot" style="padding-left:max(0px,env(safe-area-inset-left,0px))">
-  <nav><a href="../index.html">오늘의 글</a><a href="../list.html">전체 글</a><a href="../about.html">소개</a><a href="../privacy.html">개인정보처리방침</a></nav>
+  <nav><a href="../index.html">오늘의 글</a><a href="../about.html">소개</a><a href="../privacy.html">개인정보처리방침</a></nav>
   <div>소설은 저작권 보호 기간이 끝난 작품을 위키문헌 원문 그대로 싣고, 비문학 지문은 5분 뽀모도로가 직접 씁니다.</div>
   <div>© 2026 5분 뽀모도로</div>
 </footer>
-<script src="../passages.js"></script>
+<script>window.H5_PREFIX="../";window.H5_META={"novel":60,"nonfic":60};window.H5_FIXED={"k":"novel","i":3,"e":{"work":"운수 좋은 날","author":"현진건","life":"1900~1943","year":1924,"part":4,"of":4,"gloss":[["득의양양","뜻을 이루어 우쭐대는 모양"],["행랑방","대문간 곁에 붙은 방"],["허장성세","실속 없이 허세를 부림"],["추기","퀴퀴한 냄새"],["삿자리","갈대로 엮은 자리"]],"text":"김 첨지는 교묘하게도 정말 꾀꼬리 같은 소리를 내었다. 모든 사람은 일시에 웃었다.\n\n“빌어먹을 깍쟁이 같은 년, 누가 저를 어쩌나, \u003c왜 남을 귀찮게 굴어!> 어이구 소리가 처신도 없지, 허허.”\n\n웃음 소리들은 높아졌다. 그러나 그 웃음 소리들이 사라지기 전에 김 첨지는 훌쩍훌쩍 울기 시작하였다.\n\n치삼은 어이없이 주정뱅이를 바라보며, “금방 웃고 지랄을 하더니 우는 건 또 무슨 일인가.”\n\n김 첨지는 연해 코를 들여마시며, “우리 마누라가 죽었다네.”\n\n“뭐, 마누라가 죽다니, 언제?”\n\n“이놈아 언제는. 오늘이지.”\n\n“엑기 미친 놈, 거짓말 말아.”\n\n“거짓말은 왜, 참말로 죽었어, 참말로... 마누라 시체를 집어 뻐들쳐놓고 내가 술을 먹다니, 내가 죽일 놈이야, 죽일 놈이야.”하고 김 첨지는 엉엉 소리를 내어 운다.\n\n치삼은 흥이 조금 깨어지는 얼굴로, “원 이 사람이, 참말을 하나 거짓말을 하나. 그러면 집으로 가세, 가.”하고 우는 이의 팔을 잡아당기었다.\n\n치삼의 끄는 손을 뿌리치더니 김 첨지는 눈물이 글썽글썽한 눈으로 싱그레 웃는다.\n\n“죽기는 누가 죽어.”하고 득의가 양양.\n\n“죽기는 왜 죽어, 생때같이 살아만 있단다. 그 오라질 년이 밥을 죽이지. 인제 나한테 속았다.”하고 어린애 모양으로 손뼉을 치며 웃는다.\n\n“이 사람이 정말 미쳤단 말인가. 나도 아주먼네가 앓는단 말은 들었는데.”하고, 치삼이도 어느 불안을 느끼는 듯이 김 첨지에게 또 돌아가라고 권하였다.\n\n“안 죽었어, 안 죽었대도그래.”\n\n김 첨지는 홧증을 내며 확신있게 소리를 질렀으되 그 소리엔 안 죽은 것을 믿으려고 애쓰는 가락이 있었다. 기어이 일 원어치를 채워서 곱배기 한 잔씩 더 먹고 나왔다. 궂은 비는 의연히 추적추적 내린다.\n\n김 첨지는 취중에도 설렁탕을 사가지고 집에 다달았다. 집이라 해도 물론 셋집이요, 또 집 전체를 세든 게 아니라 안과 뚝떨어진 행랑방 한 간을 빌려 든 것인데 물을 길어대고 한 달에 일 원씩 내는 터이다. 만일 김 첨지가 주기를 띠지 않았던들 한 발을 대문에 들여놓았을 제 그곳을 지배하는 무시무시한 정적(靜寂) — 폭풍우가 지나간 뒤의 바다 같은 정적에 다리가 떨렸으리라.\n\n쿨룩거리는 기침 소리도 들을 수 없다. 그르렁거리는 숨소리조차 들을 수 없다. 다만 이 무덤같은 침묵을 깨뜨리는 — 깨뜨린다느니보다 한층 더 침묵을 깊게 하고 불길하게 하는 빡빡하는 그윽한 소리, 어린애의 젖 빠는 소리가 날 뿐이다. 만일 청각(聽覺)이 예민한 이 같으면 그 빡빡 소리는 빨 따름이요, 꿀떡꿀떡 하고 젖 넘어가는 소리가 없으니 빈 젖을 빤다는 것도 짐작할는지 모르리라.\n\n혹은 김 첨지도 이 불길한 침묵을 짐작했는지도 모른다. 그렇지 않으면 대문에 들어서자마자 전에 없이, “이 난장 맞을 년, 남편이 들어오는데 나와보지도 않아, 이 오라질 년.”이라고 고함을 친 게 수상하다. 이 고함이야말로 제 몸을 엄습해오는 무시무시한 증을 쫓아버리려는 허장성세(虛張聲勢)인 까닭이다.\n\n하여간 김 첨지는 방문을 왈칵 열었다. 구역을 나게 하는 추기 — 떨어진 삿자리 밑에서 나온 먼지내, 빨지 않은 기저귀에서 나는 똥내와 오줌내, 가지각색 때가 케케히 앉은 옷내, 병인의 땀 썩은 내가 섞인 추기가 무딘 김 첨지의 코를 찔렀다.\n\n방안에 들어서며 설렁탕을 한구석에 놓을 사이도 없이 주정군은 목청을 있는 대로 다 내어 호통을 쳤다.\n\n“이런 오라질 년, 주야장천(晝夜長川) 누워만 있으면 제일이야! 남편이 와도 일어나지를 못해.”라는 소리와 함께 발길로 누운 이의 다리를 몹시 찼다. 그러나 발길에 채이는 건 사람의 살이 아니고 나무등걸과 같은 느낌이 있었다. 이때에 빽빽 소리가 응아 소리로 변하였다. 개똥이가 물었던 젖을 빼어놓고 운다. 운대도 온 얼굴을 찡그려 붙여서, 운다는 표정을 할 뿐이다. 응아 소리도 입에서 나는 게 아니고 마치 뱃속에서 나는 듯하였다. 울다가 울다가 목도 잠겼고 또 울 기운조차 시진한 것 같다.\n\n발로 차도 그 보람이 없는 걸 보자 남편은 아내의 머리맡으로 달려들어 그야말로 까치집 같은 환자의 머리를 꺼들어 흔들며, “이 년아, 말을 해, 말을! 입이 붙었어, 이 오라질 년!”\n\n“…”\n\n“으응, 이것 봐, 아무 말이 없네.” “…”\n\n“이년아, 죽었단 말이냐, 왜 말이 없어.”\n\n“…”\n\n“으응. 또 대답이 없네, 정말 죽었나버이.”\n\n이러다가 누운 이의 흰 창을 덮은, 위로 치뜬 눈을 알아보자마자, “이 눈깔! 이 눈깔! 왜 나를 바라보지 못하고 천정만 보느냐, 응.”하는 말 끝엔 목이 메었다. 그러자 산 사람의 눈에서 떨어진 닭의 똥 같은 눈물이 죽은 이의 뻣뻣한 얼굴을 어룽어룽 적시었다. 문득 김 첨지는 미칠 듯이 제 얼굴을 죽은 이의 얼굴에 한테 비비대며 중얼거렸다.\n\n“설렁탕을 사다놓았는데 왜 먹지를 못하니, 왜 먹지를 못하니... 괴상하게도 오늘은! 운수가 좋더니만... ”"}};</script>
 <script>
 /* ── 광고 설정: 승인받은 뒤 여기만 채우면 됩니다 ── */
 const CONFIG = {
@@ -285,17 +286,22 @@ const CONFIG = {
   }
 };
 
-/* 지문 데이터는 passages.js에 있습니다. START 날짜부터 하루에 한 편씩 순서대로 나옵니다. */
-const START=new Date(2026,10,11);
-const D=window.H5_DATA||{novel:[],nonfic:[]};
-const todayIdx=Math.max(0,Math.round((new Date(new Date().toDateString())-START)/864e5));
-function readFor(k,i){
-  if(k==="novel"){const e=D.novel[i%D.novel.length];
+/* 글은 한 편씩 data/novel-0.json 처럼 따로 받아 옵니다(빌드가 만든 파일). 오늘 읽을 글만 받으니 가볍습니다.
+   진도는 사람마다 따로: 처음 온 날이 1일째, 그 뒤로 새 날에 들어올 때마다 한 편씩 넘어갑니다(건너뛴 날은 세지 않음). */
+const PRE=window.H5_PREFIX||"";
+const META=window.H5_META||{novel:1,nonfic:1};
+const cache={};
+function getPiece(k,i){
+  const key=k+"-"+i;
+  if(!cache[key]) cache[key]=fetch(PRE+"data/"+key+".json").then(r=>{if(!r.ok)throw new Error(r.status);return r.json()});
+  return cache[key];
+}
+function readFor(k,e){
+  if(k==="novel"){
     return {kind:"근대소설 · "+e.year, title:e.of>1?`${e.work} (${e.part}/${e.of})`:e.work,
       by:`${e.author} · 원문 그대로`+(e.of>1?` · ${e.of}회 연재 중 ${e.part}회`:""),
       src:`${e.author}(${e.life})의 저작권은 만료되었습니다. 원문: 위키문헌 「${e.work}」.`+(e.part<e.of?" 다음 회는 내일 이어집니다.":""),
       gloss:e.gloss, p:e.text.split("\n\n"), e}}
-  const e=D.nonfic[i%D.nonfic.length];
   return {kind:"비문학 · "+e.field, title:e.title, by:"수능 독서 영역 형식으로 새로 쓴 지문",
     src:"이 지문은 5분 뽀모도로가 직접 쓴 글입니다.", gloss:e.gloss, p:e.text.split("\n\n"), e};
 }
@@ -315,27 +321,56 @@ function streakInfo(){
 function renderStreak(){const s=streakInfo();$("streak").textContent=s.n;$("todayState").textContent=s.today?"완료":"아직"}
 function markDone(){const days=store.get("h5_days",[]);const k=dayKey();if(!days.includes(k)){days.push(k);store.set("h5_days",days.slice(-400))}renderStreak()}
 
-/* 글별 페이지에서는 H5_FIXED로 한 편을 고정해서 보여 줍니다 */
+/* 글별 페이지에서는 H5_FIXED({k,i,e})로 한 편을 고정해서 보여 줍니다 */
 const FIX=window.H5_FIXED||null;
-let cur=FIX?FIX.k:"novel", dayIdx=todayIdx, curRead=null;
+const OTHER={novel:"nonfic",nonfic:"novel"};
+let cur=FIX?FIX.k:(location.hash==="#nonfic"?"nonfic":"novel"), curRead=null;
+const topI={}, view={};
 if(FIX){document.querySelector(".tabs").hidden=true;document.querySelector(".daynav").hidden=true}
 
-function render(k){
-  cur=k;
+/* 이 사람의 진도(0부터). 새 날에 처음 열 때 한 칸 넘어간다 */
+function progress(k){
+  const P=store.get("h5_prog",{}), t=dayKey();
+  let p=P[k];
+  if(!p) p={i:0,d:t}; else if(p.d!==t) p={i:p.i+1,d:t};
+  P[k]=p; store.set("h5_prog",P); return p.i;
+}
+
+let renderSeq=0;
+async function render(k){
+  cur=k; const seq=++renderSeq;
   document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.k===k?"true":"false"));
-  const r=curRead=readFor(k,FIX?FIX.i:dayIdx);
+  if(!FIX && topI[k]===undefined){topI[k]=progress(k); view[k]=topI[k]}
+  const i=FIX?FIX.i:view[k];
+  let e;
+  try{ e=FIX?FIX.e:await getPiece(k,i%(META[k]||1)); }
+  catch(err){ $("title").textContent="글을 불러오지 못했어요"; $("text").innerHTML="<p>인터넷 연결을 확인하고 새로고침해 주세요.</p>"; return; }
+  if(seq!==renderSeq) return;
+  const r=curRead=readFor(k,e);
   $("kind").textContent=r.kind; $("title").textContent=r.title; $("by").textContent=r.by; $("src").textContent=r.src;
   $("text").innerHTML=""; r.p.forEach(t=>{const p=document.createElement("p");
     if(t==="(중략)") p.className="skip"; else if(/^["“'‘―<(…]/.test(t)) p.className="d";
     p.textContent=t; $("text").appendChild(p)});
-  $("gloss").innerHTML=r.gloss.map(([w,d])=>`<div><b>${w}</b>${d}</div>`).join("");
-  const dt=new Date(START); dt.setDate(dt.getDate()+dayIdx);
-  $("dayLabel").textContent=`${dt.getMonth()+1}월 ${dt.getDate()}일의 글`+(dayIdx===todayIdx?" · 오늘":"");
-  $("prevDay").disabled=dayIdx===0; $("nextDay").disabled=dayIdx>=todayIdx;
+  $("gloss").innerHTML=""; r.gloss.forEach(([w,d])=>{const g=document.createElement("div");g.innerHTML="<b></b>";g.querySelector("b").textContent=w;g.appendChild(document.createTextNode(d));$("gloss").appendChild(g)});
+  if(!FIX){
+    $("dayLabel").textContent=`${i+1}일째 글`+(i===topI[k]?" · 오늘":"");
+    $("prevDay").disabled=i===0; $("nextDay").disabled=i>=topI[k];
+  }
+  const o=OTHER[k], sw=$("switchBtn");
+  sw.textContent=o==="nonfic"?"이어서 비문학 읽기 →":"이어서 소설 읽기 →";
+  sw.href=PRE+"index.html#"+o;
+  $("done").hidden=true;
+  if(typeof resetTimer==="function") resetTimer();
   renderShop(k);
 }
-$("prevDay").onclick=()=>{if(dayIdx>0){dayIdx--;render(cur);window.scrollTo(0,0)}};
-$("nextDay").onclick=()=>{if(dayIdx<todayIdx){dayIdx++;render(cur);window.scrollTo(0,0)}};
+$("prevDay").onclick=()=>{if(view[cur]>0){view[cur]--;render(cur);window.scrollTo(0,0)}};
+$("nextDay").onclick=()=>{if(view[cur]<topI[cur]){view[cur]++;render(cur);window.scrollTo(0,0)}};
+$("switchBtn").onclick=ev=>{
+  if(FIX) return;            // 글별 페이지에서는 링크대로 첫 화면으로 이동
+  ev.preventDefault(); const o=OTHER[cur];
+  try{history.replaceState(null,"","#"+o)}catch(e){}
+  render(o); window.scrollTo(0,0);
+};
 function renderShop(k){
   const S=CONFIG.shop, a=curRead.e.author;
   const list=k==="novel"?[{t:a+" 단편선",d:`「${curRead.e.work}」이 실린 작품집`,link:S.authors[a]||""},S.novelMore,S.common,S.home]:[...S.nonfic,S.common,S.home];
@@ -402,7 +437,8 @@ $("startBtn").onclick=()=>{
   if(timer){stop();$("startBtn").textContent="이어서";$("hint").textContent="잠깐 멈췄어요"}
   else{timer=setInterval(tick,1000);$("startBtn").textContent="멈춤";$("hint").textContent="휴대폰 알림은 잠시 꺼 두세요";draw()}
 };
-$("resetBtn").onclick=()=>{stop();left=TOTAL;draw();$("startBtn").textContent="시작";$("hint").textContent="시작을 누르고 끝까지 읽어 보세요"};
+function resetTimer(){stop();left=TOTAL;draw();$("startBtn").textContent="시작";$("hint").textContent="시작을 누르고 끝까지 읽어 보세요"}
+$("resetBtn").onclick=resetTimer;
 
 /* 읽기 색: 고른 색을 이 브라우저에 기억합니다 */
 function setReader(r){
