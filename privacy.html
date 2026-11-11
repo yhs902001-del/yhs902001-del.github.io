@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>개인정보처리방침 | 5분 뽀모도로</title>
+<meta name="description" content="5분 뽀모도로의 개인정보처리방침입니다.">
+<link rel="canonical" href="https://yhs902001-del.github.io/5min/privacy.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="5분 뽀모도로">
+<meta property="og:title" content="개인정보처리방침 | 5분 뽀모도로">
+<meta property="og:description" content="5분 뽀모도로의 개인정보처리방침입니다.">
+<meta property="og:url" content="https://yhs902001-del.github.io/5min/privacy.html">
+<meta property="og:image" content="https://yhs902001-del.github.io/5min/og.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F4EFE4">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+/* Layout: 한 줄 읽기 기둥. 위에 모래시계, 가운데 지문. 전자책 리더처럼 종이·세피아·연두·밤 네 가지 읽기 색. */
+:root{
+  /* 종이: 흰 종이보다 눈부심이 덜한 미색 바탕, 순흑 대신 먹색 글자 */
+  --bg:#F4EFE4; --paper:#FAF6EE; --ink:#2F2A23; --muted:#7A7164; --line:#E2D9C8;
+  --sand:#AE772C; --sand-soft:#EBDDC3; --ok:#2F7A55; --bad:#B0443A;
+  --f-display:"Song Myung","Gowun Batang",serif;
+  --f-body:"Gowun Batang","Nanum Myeongjo",serif;
+  --f-ui:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15171A; --paper:#1D2024; --ink:#D3CCBF; --muted:#8E887D; --line:#2D3136;
+  --sand:#C99A55; --sand-soft:#3A3225; --ok:#6FC195; --bad:#E07B70; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15171A; --paper:#1D2024; --ink:#D3CCBF; --muted:#8E887D; --line:#2D3136;
+  --sand:#C99A55; --sand-soft:#3A3225; --ok:#6FC195; --bad:#E07B70; color-scheme:dark}
+/* 사용자가 고른 읽기 색은 시스템 테마보다 우선합니다 */
+:root[data-reader="paper"]{--bg:#F4EFE4; --paper:#FAF6EE; --ink:#2F2A23; --muted:#7A7164; --line:#E2D9C8; --sand:#AE772C; --sand-soft:#EBDDC3; color-scheme:light}
+:root[data-reader="sepia"]{--bg:#E9DCC3; --paper:#F1E6D0; --ink:#45382A; --muted:#7B6A54; --line:#D5C3A2; --sand:#985F22; --sand-soft:#DCC7A2; color-scheme:light}
+:root[data-reader="green"]{--bg:#E2ECD8; --paper:#ECF3E4; --ink:#24322A; --muted:#5D6D60; --line:#C8D7BC; --sand:#86682A; --sand-soft:#D3DFC4; color-scheme:light}
+:root[data-reader="night"]{--bg:#15171A; --paper:#1D2024; --ink:#D3CCBF; --muted:#8E887D; --line:#2D3136;
+  --sand:#C99A55; --sand-soft:#3A3225; --ok:#6FC195; --bad:#E07B70; color-scheme:dark}
+body{transition:background-color .3s,color .3s}
+@media (prefers-reduced-motion:reduce){body{transition:none}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 56px}
+.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px 16px;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;gap:4px}
+.tag{font-size:.85rem;color:var(--muted)}
+.side{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+@media (max-width:440px){.side{align-items:flex-start}}
+.reader{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--muted)}
+.chip{width:26px;height:26px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0;display:grid;place-items:center;font:600 .7rem var(--f-body)}
+.chip[aria-pressed="true"]{border-color:var(--sand);box-shadow:0 0 0 2px var(--paper) inset}
+.chip.paper{background:#FAF6EE;color:#2F2A23}.chip.sepia{background:#F1E6D0;color:#45382A}
+.chip.green{background:#ECF3E4;color:#24322A}.chip.night{background:#1D2024;color:#D3CCBF}
+h1{font-family:var(--f-display);font-weight:400;font-size:1.9rem;margin:0;letter-spacing:.01em}
+.streak{font-size:.85rem;color:var(--muted)}
+.streak b{color:var(--sand);font-size:1.05rem;font-variant-numeric:tabular-nums}
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line)}
+.tab{font:500 .95rem var(--f-ui);background:none;border:0;color:var(--muted);padding:10px 4px;margin-right:14px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--sand)}
+.tab:focus-visible,button:focus-visible{outline:2px solid var(--sand);outline-offset:2px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.clock{position:sticky;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:5;display:flex;align-items:center;gap:16px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 18px;box-shadow:0 6px 18px -12px rgba(0,0,0,.35)}
+.clock::before{content:"";position:absolute;left:-1px;right:-1px;bottom:100%;height:22px;background:var(--bg)}
+.clock svg{width:44px;height:66px;flex:none}
+.clock .t{font:600 2rem var(--f-ui);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.clock .s{font-size:.82rem;color:var(--muted);margin-top:2px}
+.clock .ctl{margin-left:auto;display:flex;gap:8px}
+.btn{font:500 .9rem var(--f-ui);border-radius:999px;padding:9px 16px;cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+@media (max-width:440px){.clock{flex-wrap:wrap}.clock .ctl{margin-left:0;width:100%}.clock .ctl .btn{flex:1}}
+.meta{font-size:.78rem;letter-spacing:.08em;color:var(--sand);text-transform:uppercase;font-weight:600}
+article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:6px 0 4px;text-wrap:balance}
+.by{font-size:.85rem;color:var(--muted);margin-bottom:18px}
+.text p{font-family:var(--f-body);font-size:1.08rem;line-height:1.95;margin:0 0 1em;word-break:keep-all}
+.text p.d{padding-left:1em}
+.text p.skip{text-align:center;color:var(--muted);font-family:var(--f-ui);font-size:.85rem;letter-spacing:.1em}
+.daynav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:-10px}
+.daynav span{font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.btn.sm{padding:6px 12px;font-size:.8rem}
+.btn:disabled{opacity:.35;cursor:default}
+.gloss{border-top:1px solid var(--line);padding-top:14px;margin-top:8px;font-size:.88rem;color:var(--muted);display:grid;gap:4px}
+.gloss b{color:var(--ink);font-weight:600;margin-right:6px}
+.src{font-size:.78rem;color:var(--muted);margin-top:14px}
+.quiz{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:20px}
+.quiz h3{margin:0;font:600 1.05rem var(--f-ui)}
+.q p{margin:0 0 10px;font-weight:500;line-height:1.6}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;font:400 .95rem/1.5 var(--f-ui);padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--ink);cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--sand)}
+.opt.right{border-color:var(--ok);color:var(--ok);font-weight:500}
+.opt.wrong{border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+.opt:disabled{cursor:default}
+.why{font-size:.88rem;color:var(--muted);margin-top:8px;line-height:1.6}
+.done{border-top:1px solid var(--line);padding-top:16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.done .msg{flex:1;min-width:200px;font-family:var(--f-body);font-size:1.05rem}
+.toast{font-size:.82rem;color:var(--ok)}
+.shop{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-direction:column;gap:12px}
+.shop h3{margin:0;font:600 1rem var(--f-ui)}
+.shop h3 small{font-weight:400;color:var(--muted);margin-left:6px;font-size:.8rem}
+.items{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.item{display:flex;flex-direction:column;gap:4px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);text-decoration:none;min-width:0}
+.item:hover{border-color:var(--sand)}
+.item b{font-weight:600;font-size:.95rem}
+.item span{font-size:.82rem;color:var(--muted);line-height:1.5}
+.item em{font-style:normal;font-size:.8rem;color:var(--sand);margin-top:auto;padding-top:6px}
+.item.nolink em{color:var(--muted)}
+.disclose{font-size:.75rem;color:var(--muted);line-height:1.5}
+.ad{min-height:120px;display:flex;align-items:center;justify-content:center}
+.ad.ph{border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:.82rem;text-align:center;padding:16px}
+.ad-label{font-size:.7rem;letter-spacing:.08em;color:var(--muted);margin-bottom:-14px}
+@media (prefers-reduced-motion:reduce){#stream{display:none}}
+</style>
+<style>
+.foot{max-width:640px;margin:40px auto 0;padding-top:20px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted);display:flex;flex-direction:column;gap:8px;line-height:1.6}
+.foot nav{display:flex;gap:14px;flex-wrap:wrap}
+.foot a,.fixednav a,.doc a{color:var(--ink)}
+.fixednav{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.85rem}
+.fixednav a{text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+.doc h1{font-family:var(--f-display);font-weight:400;font-size:1.9rem;margin:0}
+.doc h2{font:600 1.05rem var(--f-ui);margin:26px 0 8px}
+.doc p,.doc li{font-family:var(--f-body);font-size:1.02rem;line-height:1.85;word-break:keep-all}
+.doc .home{font-size:.85rem;color:var(--muted);text-decoration:none}
+.list{display:flex;flex-direction:column;gap:0;margin:0;padding:0;list-style:none}
+.list li a{display:flex;justify-content:space-between;gap:12px;padding:12px 2px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.list li span{color:var(--muted);font:400 .82rem var(--f-ui);white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap doc">
+<a class="home" href="index.html">← 5분 뽀모도로</a>
+<h1>개인정보처리방침</h1>
+<p>5분 뽀모도로(이하 '사이트')는 이용자의 개인정보를 소중히 다루며, 관련 법령을 지킵니다. 이 방침은 사이트가 어떤 정보를 어떻게 다루는지 설명합니다.</p>
+<h2>1. 직접 수집하는 개인정보</h2>
+<p>사이트는 회원가입 기능이 없으며, 이름·연락처·이메일 등 이용자를 식별할 수 있는 개인정보를 직접 수집하거나 서버에 저장하지 않습니다.</p>
+<h2>2. 브라우저에 저장되는 정보</h2>
+<p>연속으로 읽은 날짜와 이용자가 고른 읽기 색은 이용자 기기의 브라우저 저장소(localStorage)에만 저장되며, 사이트 운영자에게 전송되지 않습니다. 브라우저의 사이트 데이터 삭제 기능으로 언제든 지울 수 있습니다.</p>
+<h2>3. 방문 통계</h2>
+<p>사이트는 서비스 개선을 위해 Google 애널리틱스를 사용할 수 있습니다. Google 애널리틱스는 쿠키를 이용해 방문 페이지, 체류 시간, 기기 종류 등 개인을 직접 식별하지 않는 이용 정보를 수집합니다. 자세한 내용은 Google의 개인정보처리방침을 참고해 주세요.</p>
+<h2>4. 광고와 제휴 링크</h2>
+<p>사이트는 쿠팡 파트너스 활동의 일환으로 제휴 링크를 게시하며, 이용자가 링크를 통해 상품을 구매하면 일정액의 수수료를 받습니다. 이 과정에서 쿠팡이 구매 추적을 위해 쿠키를 사용할 수 있습니다. 또한 사이트는 Google 애드센스 광고를 게재할 수 있으며, Google 및 제3자 광고 사업자는 쿠키를 이용해 이용자의 이전 방문 기록에 기반한 광고를 보여 줄 수 있습니다. 맞춤 광고는 Google 광고 설정에서 끌 수 있습니다.</p>
+<h2>5. 쿠키를 거부하는 방법</h2>
+<p>이용자는 브라우저 설정에서 쿠키 저장을 거부하거나 삭제할 수 있습니다. 쿠키를 거부해도 글을 읽는 데에는 지장이 없습니다.</p>
+<h2>6. 문의</h2>
+<p>개인정보와 관련한 문의는 준비 중입니다로 보내 주세요.</p>
+<h2>7. 시행일</h2>
+<p>이 방침은 2026년 11월 11일부터 시행합니다.</p>
+</div>
+<footer class="foot" style="padding-left:max(0px,env(safe-area-inset-left,0px))">
+  <nav><a href="index.html">오늘의 글</a><a href="list.html">전체 글</a><a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a></nav>
+  <div>소설은 저작권 보호 기간이 끝난 작품을 위키문헌 원문 그대로 싣고, 비문학 지문은 5분 뽀모도로가 직접 씁니다.</div>
+  <div>© 2026 5분 뽀모도로</div>
+</footer>
+</body>
+</html>

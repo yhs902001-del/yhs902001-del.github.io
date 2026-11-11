@@ -1,0 +1,27 @@
+{
+  "name": "5분 뽀모도로",
+  "short_name": "5분 뽀모도로",
+  "description": "숏폼에 지친 눈을 위한 하루 5분 독서. 모래시계가 다 떨어질 때까지 근대소설 원문과 비문학 한 편을 읽어 보세요.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F4EFE4",
+  "theme_color": "#F4EFE4",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

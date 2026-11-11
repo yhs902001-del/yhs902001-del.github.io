@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>전체 글 | 5분 뽀모도로</title>
+<meta name="description" content="5분 뽀모도로에 실린 근대소설 원문과 비문학 지문 전체 목록입니다.">
+<link rel="canonical" href="https://yhs902001-del.github.io/5min/list.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="5분 뽀모도로">
+<meta property="og:title" content="전체 글 | 5분 뽀모도로">
+<meta property="og:description" content="5분 뽀모도로에 실린 근대소설 원문과 비문학 지문 전체 목록입니다.">
+<meta property="og:url" content="https://yhs902001-del.github.io/5min/list.html">
+<meta property="og:image" content="https://yhs902001-del.github.io/5min/og.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F4EFE4">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+/* Layout: 한 줄 읽기 기둥. 위에 모래시계, 가운데 지문. 전자책 리더처럼 종이·세피아·연두·밤 네 가지 읽기 색. */
+:root{
+  /* 종이: 흰 종이보다 눈부심이 덜한 미색 바탕, 순흑 대신 먹색 글자 */
+  --bg:#F4EFE4; --paper:#FAF6EE; --ink:#2F2A23; --muted:#7A7164; --line:#E2D9C8;
+  --sand:#AE772C; --sand-soft:#EBDDC3; --ok:#2F7A55; --bad:#B0443A;
+  --f-display:"Song Myung","Gowun Batang",serif;
+  --f-body:"Gowun Batang","Nanum Myeongjo",serif;
+  --f-ui:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15171A; --paper:#1D2024; --ink:#D3CCBF; --muted:#8E887D; --line:#2D3136;
+  --sand:#C99A55; --sand-soft:#3A3225; --ok:#6FC195; --bad:#E07B70; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15171A; --paper:#1D2024; --ink:#D3CCBF; --muted:#8E887D; --line:#2D3136;
+  --sand:#C99A55; --sand-soft:#3A3225; --ok:#6FC195; --bad:#E07B70; color-scheme:dark}
+/* 사용자가 고른 읽기 색은 시스템 테마보다 우선합니다 */
+:root[data-reader="paper"]{--bg:#F4EFE4; --paper:#FAF6EE; --ink:#2F2A23; --muted:#7A7164; --line:#E2D9C8; --sand:#AE772C; --sand-soft:#EBDDC3; color-scheme:light}
+:root[data-reader="sepia"]{--bg:#E9DCC3; --paper:#F1E6D0; --ink:#45382A; --muted:#7B6A54; --line:#D5C3A2; --sand:#985F22; --sand-soft:#DCC7A2; color-scheme:light}
+:root[data-reader="green"]{--bg:#E2ECD8; --paper:#ECF3E4; --ink:#24322A; --muted:#5D6D60; --line:#C8D7BC; --sand:#86682A; --sand-soft:#D3DFC4; color-scheme:light}
+:root[data-reader="night"]{--bg:#15171A; --paper:#1D2024; --ink:#D3CCBF; --muted:#8E887D; --line:#2D3136;
+  --sand:#C99A55; --sand-soft:#3A3225; --ok:#6FC195; --bad:#E07B70; color-scheme:dark}
+body{transition:background-color .3s,color .3s}
+@media (prefers-reduced-motion:reduce){body{transition:none}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 56px}
+.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px 16px;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;gap:4px}
+.tag{font-size:.85rem;color:var(--muted)}
+.side{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+@media (max-width:440px){.side{align-items:flex-start}}
+.reader{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--muted)}
+.chip{width:26px;height:26px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0;display:grid;place-items:center;font:600 .7rem var(--f-body)}
+.chip[aria-pressed="true"]{border-color:var(--sand);box-shadow:0 0 0 2px var(--paper) inset}
+.chip.paper{background:#FAF6EE;color:#2F2A23}.chip.sepia{background:#F1E6D0;color:#45382A}
+.chip.green{background:#ECF3E4;color:#24322A}.chip.night{background:#1D2024;color:#D3CCBF}
+h1{font-family:var(--f-display);font-weight:400;font-size:1.9rem;margin:0;letter-spacing:.01em}
+.streak{font-size:.85rem;color:var(--muted)}
+.streak b{color:var(--sand);font-size:1.05rem;font-variant-numeric:tabular-nums}
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line)}
+.tab{font:500 .95rem var(--f-ui);background:none;border:0;color:var(--muted);padding:10px 4px;margin-right:14px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--sand)}
+.tab:focus-visible,button:focus-visible{outline:2px solid var(--sand);outline-offset:2px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.clock{position:sticky;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:5;display:flex;align-items:center;gap:16px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 18px;box-shadow:0 6px 18px -12px rgba(0,0,0,.35)}
+.clock::before{content:"";position:absolute;left:-1px;right:-1px;bottom:100%;height:22px;background:var(--bg)}
+.clock svg{width:44px;height:66px;flex:none}
+.clock .t{font:600 2rem var(--f-ui);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.clock .s{font-size:.82rem;color:var(--muted);margin-top:2px}
+.clock .ctl{margin-left:auto;display:flex;gap:8px}
+.btn{font:500 .9rem var(--f-ui);border-radius:999px;padding:9px 16px;cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+@media (max-width:440px){.clock{flex-wrap:wrap}.clock .ctl{margin-left:0;width:100%}.clock .ctl .btn{flex:1}}
+.meta{font-size:.78rem;letter-spacing:.08em;color:var(--sand);text-transform:uppercase;font-weight:600}
+article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:6px 0 4px;text-wrap:balance}
+.by{font-size:.85rem;color:var(--muted);margin-bottom:18px}
+.text p{font-family:var(--f-body);font-size:1.08rem;line-height:1.95;margin:0 0 1em;word-break:keep-all}
+.text p.d{padding-left:1em}
+.text p.skip{text-align:center;color:var(--muted);font-family:var(--f-ui);font-size:.85rem;letter-spacing:.1em}
+.daynav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:-10px}
+.daynav span{font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.btn.sm{padding:6px 12px;font-size:.8rem}
+.btn:disabled{opacity:.35;cursor:default}
+.gloss{border-top:1px solid var(--line);padding-top:14px;margin-top:8px;font-size:.88rem;color:var(--muted);display:grid;gap:4px}
+.gloss b{color:var(--ink);font-weight:600;margin-right:6px}
+.src{font-size:.78rem;color:var(--muted);margin-top:14px}
+.quiz{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:20px}
+.quiz h3{margin:0;font:600 1.05rem var(--f-ui)}
+.q p{margin:0 0 10px;font-weight:500;line-height:1.6}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;font:400 .95rem/1.5 var(--f-ui);padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--ink);cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--sand)}
+.opt.right{border-color:var(--ok);color:var(--ok);font-weight:500}
+.opt.wrong{border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+.opt:disabled{cursor:default}
+.why{font-size:.88rem;color:var(--muted);margin-top:8px;line-height:1.6}
+.done{border-top:1px solid var(--line);padding-top:16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.done .msg{flex:1;min-width:200px;font-family:var(--f-body);font-size:1.05rem}
+.toast{font-size:.82rem;color:var(--ok)}
+.shop{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-direction:column;gap:12px}
+.shop h3{margin:0;font:600 1rem var(--f-ui)}
+.shop h3 small{font-weight:400;color:var(--muted);margin-left:6px;font-size:.8rem}
+.items{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.item{display:flex;flex-direction:column;gap:4px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);text-decoration:none;min-width:0}
+.item:hover{border-color:var(--sand)}
+.item b{font-weight:600;font-size:.95rem}
+.item span{font-size:.82rem;color:var(--muted);line-height:1.5}
+.item em{font-style:normal;font-size:.8rem;color:var(--sand);margin-top:auto;padding-top:6px}
+.item.nolink em{color:var(--muted)}
+.disclose{font-size:.75rem;color:var(--muted);line-height:1.5}
+.ad{min-height:120px;display:flex;align-items:center;justify-content:center}
+.ad.ph{border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:.82rem;text-align:center;padding:16px}
+.ad-label{font-size:.7rem;letter-spacing:.08em;color:var(--muted);margin-bottom:-14px}
+@media (prefers-reduced-motion:reduce){#stream{display:none}}
+</style>
+<style>
+.foot{max-width:640px;margin:40px auto 0;padding-top:20px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted);display:flex;flex-direction:column;gap:8px;line-height:1.6}
+.foot nav{display:flex;gap:14px;flex-wrap:wrap}
+.foot a,.fixednav a,.doc a{color:var(--ink)}
+.fixednav{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.85rem}
+.fixednav a{text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+.doc h1{font-family:var(--f-display);font-weight:400;font-size:1.9rem;margin:0}
+.doc h2{font:600 1.05rem var(--f-ui);margin:26px 0 8px}
+.doc p,.doc li{font-family:var(--f-body);font-size:1.02rem;line-height:1.85;word-break:keep-all}
+.doc .home{font-size:.85rem;color:var(--muted);text-decoration:none}
+.list{display:flex;flex-direction:column;gap:0;margin:0;padding:0;list-style:none}
+.list li a{display:flex;justify-content:space-between;gap:12px;padding:12px 2px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.list li span{color:var(--muted);font:400 .82rem var(--f-ui);white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap doc">
+<a class="home" href="index.html">← 5분 뽀모도로</a>
+<h1>전체 글</h1>
+<p>한 편을 골라 모래시계를 뒤집어 보세요. 소설은 연재 순서대로, 비문학은 주제별로 실려 있습니다.</p>
+<h2>근대소설 원문</h2><ul class="list"><li><a href="read/dongbaekkkot-1.html">동백꽃 1회<span>김유정 · 1936</span></a></li>
+<li><a href="read/dongbaekkkot-2.html">동백꽃 2회<span>김유정 · 1936</span></a></li>
+<li><a href="read/unsu-joeun-nal-1.html">운수 좋은 날 1회<span>현진건 · 1924</span></a></li>
+<li><a href="read/unsu-joeun-nal-2.html">운수 좋은 날 2회<span>현진건 · 1924</span></a></li>
+<li><a href="read/unsu-joeun-nal-3.html">운수 좋은 날 3회<span>현진건 · 1924</span></a></li>
+<li><a href="read/unsu-joeun-nal-4.html">운수 좋은 날 4회<span>현진건 · 1924</span></a></li>
+<li><a href="read/b-sagam-1.html">B사감과 러브레터 1회<span>현진건 · 1925</span></a></li>
+<li><a href="read/b-sagam-2.html">B사감과 러브레터 2회<span>현진건 · 1925</span></a></li>
+<li><a href="read/gamja-1.html">감자 1회<span>김동인 · 1925</span></a></li>
+<li><a href="read/gamja-2.html">감자 2회<span>김동인 · 1925</span></a></li>
+<li><a href="read/talchulgi-1.html">탈출기 1회<span>최서해 · 1925</span></a></li>
+<li><a href="read/talchulgi-2.html">탈출기 2회<span>최서해 · 1925</span></a></li>
+<li><a href="read/talchulgi-3.html">탈출기 3회<span>최서해 · 1925</span></a></li></ul>
+<h2>비문학</h2><ul class="list"><li><a href="read/attention.html">주의는 왜 좁은 문인가<span>인지과학</span></a></li>
+<li><a href="read/sunk-cost.html">이미 쓴 돈은 왜 잊어야 하는가<span>경제</span></a></li>
+<li><a href="read/immunity.html">몸은 어떻게 병원체를 기억하는가<span>생명과학</span></a></li>
+<li><a href="read/nulla-poena.html">법률 없으면 범죄도 없다<span>법</span></a></li>
+<li><a href="read/public-key.html">자물쇠를 나눠 주는 암호<span>정보기술</span></a></li>
+<li><a href="read/theseus.html">판자를 모두 바꾼 배는 같은 배인가<span>철학</span></a></li>
+<li><a href="read/perspective.html">평면 위에 깊이를 만드는 법<span>미술</span></a></li>
+<li><a href="read/circadian.html">몸속에 숨은 시계<span>생명과학</span></a></li>
+<li><a href="read/base-rate.html">기준금리 하나가 바꾸는 것들<span>경제</span></a></li>
+<li><a href="read/hangul.html">한글은 무엇을 본떠 만들었나<span>국어</span></a></li>
+<li><a href="read/entropy.html">시간은 왜 한쪽으로만 흐르는가<span>물리</span></a></li>
+<li><a href="read/confirmation-bias.html">우리는 왜 맞는 증거만 찾는가<span>심리</span></a></li>
+<li><a href="read/plate-tectonics.html">대륙은 움직인다<span>지구과학</span></a></li>
+<li><a href="read/compression.html">파일은 어떻게 작아지는가<span>정보기술</span></a></li>
+<li><a href="read/commons.html">공유지는 반드시 비극으로 끝나는가<span>사회</span></a></li></ul>
+</div>
+<footer class="foot" style="padding-left:max(0px,env(safe-area-inset-left,0px))">
+  <nav><a href="index.html">오늘의 글</a><a href="list.html">전체 글</a><a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a></nav>
+  <div>소설은 저작권 보호 기간이 끝난 작품을 위키문헌 원문 그대로 싣고, 비문학 지문은 5분 뽀모도로가 직접 씁니다.</div>
+  <div>© 2026 5분 뽀모도로</div>
+</footer>
+</body>
+</html>
