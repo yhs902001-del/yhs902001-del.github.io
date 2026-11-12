@@ -113,6 +113,13 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
 .gloss{border-top:1px solid var(--line);padding-top:14px;margin-top:8px;font-size:.88rem;color:var(--muted);display:grid;gap:4px}
 .gloss b{color:var(--ink);font-weight:600;margin-right:6px}
 .src{font-size:.78rem;color:var(--muted);margin-top:14px}
+/* 한 줄 후킹: 글 위에서 왜 읽어야 하는지 먼저 보여 줍니다 */
+.hook{background:var(--sand-soft);border-radius:14px;padding:16px 18px;margin-bottom:18px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.hook .lab{font:600 .75rem var(--f-ui);letter-spacing:.06em;color:var(--sand)}
+.hook p{margin:0;font-family:var(--f-body);font-size:1.12rem;line-height:1.6;word-break:keep-all;text-wrap:pretty}
+.hook .btn{margin-top:4px}
+article h2{scroll-margin-top:190px}
+@media (min-width:441px){article h2{scroll-margin-top:130px}}
 .next{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:26px 0 4px}
 #finishHint{text-align:center;font-size:.85rem;color:var(--muted);margin-top:6px}
 .next .btn{display:inline-block;padding:14px 24px;font-size:1rem;text-decoration:none}
