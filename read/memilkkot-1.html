@@ -24,7 +24,6 @@
 <link rel="manifest" href="../manifest.webmanifest">
 </head>
 <body>
-
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
@@ -266,7 +265,7 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
   </article>
 
   <aside class="shop" aria-label="오늘의 글, 책으로">
-    <h3>오늘의 글, 책으로 이어 읽기<small>쿠팡</small></h3>
+    <h3 id="shopTitle">오늘의 글, 책으로 이어 읽기<small>쿠팡</small></h3>
     <div class="items" id="items"></div>
     <div class="disclose">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</div>
   </aside>
@@ -299,12 +298,35 @@ const CONFIG = {
   // 쿠팡 파트너스에서 만든 단축 링크(https://link.coupang.com/a/xxxx)를 아래 link에 붙여넣으세요
   shop: {
     // 작가별 작품집 링크 (그날 소설의 작가에 맞춰 자동으로 바뀝니다)
-    authors: {"김유정":"", "현진건":"", "김동인":"", "최서해":""},
-    novelMore: {t:"한국 근대 단편소설 모음", d:"교과서 수록 단편을 한 권에", link:""},
-    nonfic: [
-      {t:"집중력 회복 교양서", d:"주의력과 뇌과학을 다룬 베스트셀러", link:""},
-      {t:"수능 국어 비문학 독해집", d:"매일 한 지문씩 푸는 독서 영역 문제집", link:""}
-    ],
+    authors: {
+      "현진건":{t:"운수 좋은 날 — 현진건 단편집",d:"「운수 좋은 날」을 비롯한 현진건 단편 모음",link:"https://link.coupang.com/a/iBEi2Ppigu"},
+      "김유정":{t:"김유정 단편선 — 봄봄 외 14편",d:"국어 교사들이 고른 김유정 대표 단편 모음",link:"https://link.coupang.com/a/iBEi6JOJlA"},
+      "김동인":{t:"김동인 단편선",d:"「배따라기」「발가락이 닮았다」의 작가 단편 모음",link:"https://link.coupang.com/a/iBEjaPKSFE"},
+      "이효석":{t:"메밀꽃 필 무렵 — 이효석 단편 12선",d:"이효석 대표 단편 열두 편을 한 권에",link:"https://link.coupang.com/a/iBEjeGjMTk"},
+      "채만식":{t:"채만식 단편선 — 레디메이드 인생 외",d:"국어 교사들이 고른 채만식 단편 모음",link:"https://link.coupang.com/a/iBEjiZaw2K"},
+      "최서해":{t:"탈출기·홍염 — 최서해 단편선",d:"「탈출기」와 「홍염」이 함께 실린 단편선",link:"https://link.coupang.com/a/iBEjmQAjYW"}
+    },
+    novelMore: {t:"한국단편소설 40",d:"교과서에 실린 단편 40편을 한 권으로",link:"https://link.coupang.com/a/iBEjqClQSi"},
+    // 비문학: 분야별 추천 책 1권 (내 말로 쓴 소개만 — 책 본문 인용 금지)
+    books: {
+      econ:{t:"경제학 콘서트",a:"팀 하포드",d:"커피값·중고차처럼 일상의 예로 경제 원리를 풀어 쓴 입문서",link:"https://link.coupang.com/a/iBEh9e2xXw"},
+      nudge:{t:"넛지",a:"리처드 탈러·캐스 선스타인",d:"‘슬쩍 찌르는’ 설계로 선택을 돕는다는 생각을 널리 알린 책. 탈러는 노벨경제학상 수상자",link:"https://link.coupang.com/a/iBEideo1dc"},
+      psy:{t:"생각에 관한 생각",a:"대니얼 카너먼",d:"기준점 효과·확증 편향 같은 판단의 함정을 정리한 책. 심리학자로 노벨경제학상을 받은 저자",link:"https://link.coupang.com/a/iBEjY3T6Hs"},
+      focus:{t:"도둑맞은 집중력",a:"요한 하리",d:"우리가 왜 집중하기 어려워졌는지 원인을 추적한 책",link:"https://link.coupang.com/a/iBEikOa9tY"},
+      bio:{t:"이기적 유전자",a:"리처드 도킨스",d:"유전자의 눈으로 생명을 다시 보게 만든 교양 과학 고전",link:"https://link.coupang.com/a/iBEioLqzRI"},
+      cosmos:{t:"코스모스",a:"칼 세이건",d:"우주와 과학의 역사를 한 권에 담은 교양 과학의 대표작",link:"https://link.coupang.com/a/iBEisKnA1Q"},
+      time:{t:"시간은 흐르지 않는다",a:"카를로 로벨리",d:"물리학자가 ‘시간이란 무엇인가’를 쉬운 말로 풀어 쓴 책",link:"https://link.coupang.com/a/iBEiwRPzd6"},
+      it:{t:"비전공자도 이해할 수 있는 AI 지식",a:"박상길",d:"검색·추천·인공지능이 어떻게 작동하는지 비전공자 눈높이로 설명",link:"https://link.coupang.com/a/iBEiBqARwW"},
+      phil:{t:"정의란 무엇인가",a:"마이클 샌델",d:"트롤리 문제·공리주의·칸트를 하버드 강의로 풀어낸 책",link:"https://link.coupang.com/a/iBEiFLEMXk"},
+      law:{t:"세상을 바꾼 법정",a:"마이클 리프·미첼 콜드웰",d:"역사적인 재판들을 따라가며 법의 원칙이 어떻게 다져졌는지 보여 주는 책",link:"https://link.coupang.com/a/iBEiJKSonI"},
+      soc:{t:"팩트풀니스",a:"한스 로슬링",d:"통계와 숫자로 세상을 오해 없이 보는 법",link:"https://link.coupang.com/a/iBEiN69kXI"},
+      kor:{t:"한글의 탄생",a:"노마 히데키",d:"일본의 언어학자가 한글이 어떻게 만들어졌는지 깊이 파고든 책",link:"https://link.coupang.com/a/iBEiTzC8iq"},
+      art:{t:"방구석 미술관",a:"조원재",d:"화가들의 삶 이야기로 미술을 가볍게 시작하게 해 주는 교양서",link:"https://link.coupang.com/a/iBEiYwBmRE"}
+    },
+    // 분야 → 책 (제목에 특정 말이 들어가면 그 책이 우선)
+    fieldBook: {"경제":"econ","심리":"psy","인지과학":"focus","생명과학":"bio","물리":"cosmos","지구과학":"cosmos","정보기술":"it",
+                "철학":"phil","법":"law","사회":"soc","국어":"kor","미술":"art","예술":"art","음악":"art","건축":"art"},
+    titleBook: [["팔꿈치","nudge"],["시간은 왜","time"]],
     // img를 넣으면 글자 버튼 대신 사진 배너로 보입니다 (파트너스 배너 HTML의 a href와 img src)
     common: {t:"쿠팡 도서", d:"쿠팡 배너", link:"https://link.coupang.com/a/iz2tDghM2m",
              img:"https://ads-partners.coupang.com/banners/1049089?trackingCode=AF7764557&subId=&traceId=V0-301-f5c692db558def48-I1049089&w=728&h=90", w:728, h:90},
@@ -422,7 +444,16 @@ $("switchBtn").onclick=ev=>{
 };
 function renderShop(k){
   const S=CONFIG.shop, a=curRead.e.author;
-  const list=k==="novel"?[{t:a+" 단편선",d:`「${curRead.e.work}」이 실린 작품집`,link:S.authors[a]||""},S.novelMore,S.common,S.home]:[...S.nonfic,S.common,S.home];
+  let list;
+  if(k==="novel"){
+    list=[S.authors[a],S.novelMore,S.common,S.home].filter(Boolean);
+    const c=a.charCodeAt(a.length-1)-0xAC00, ga=(c>=0&&c%28)?"이":"가";
+    $("shopTitle").firstChild.textContent=`${a}${ga} 좋았다면, 책으로 이어 읽기`;
+  }else{
+    const tb=(S.titleBook.find(([w])=>curRead.e.title.includes(w))||[])[1], b=S.books[tb||S.fieldBook[curRead.e.field]];
+    list=[b&&{...b,d:(b.a?b.a+" · ":"")+b.d},S.common,S.home].filter(Boolean);
+    $("shopTitle").firstChild.textContent="이 주제를 더 알고 싶다면";
+  }
   $("items").innerHTML="";
   /* 파트너스 링크가 하나도 없으면 상품 칸을 숨깁니다 */
   const live=list.filter(it=>it.link);
@@ -439,7 +470,8 @@ function renderShop(k){
     }
     const a=document.createElement(it.link?"a":"div");
     a.className="item"+(it.link?"":" nolink");
-    if(it.link){a.href=it.link;a.target="_blank";a.rel="sponsored noopener"}
+    if(it.link){a.href=it.link;a.target="_blank";a.rel="sponsored noopener";a.referrerPolicy="unsafe-url";
+      a.onclick=()=>{if(window.gtag) gtag("event","book_click",{book:it.t,kind:k})}}
     a.innerHTML=`<b></b><span></span><em>${it.link?"쿠팡에서 보기 →":"파트너스 링크 입력 전"}</em>`;
     a.querySelector("b").textContent=it.t; a.querySelector("span").textContent=it.d;
     $("items").appendChild(a);
