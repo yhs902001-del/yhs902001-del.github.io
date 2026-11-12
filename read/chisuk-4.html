@@ -24,7 +24,6 @@
 <link rel="manifest" href="../manifest.webmanifest">
 </head>
 <body>
-
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
@@ -469,12 +468,12 @@ $("startBtn").onclick=()=>{
 };
 function resetTimer(){stop();left=TOTAL;draw();$("startBtn").textContent="시작";$("hint").textContent="시작을 누르고 끝까지 읽어 보세요"}
 $("resetBtn").onclick=resetTimer;
-/* 모래시계보다 먼저 다 읽은 사람: 타이머를 1분 이상 돌렸으면 완료로 쳐 줍니다 (바로 누르기 방지) */
-const MIN_READ=60;
+/* 모래시계보다 먼저 다 읽은 사람: 타이머를 2분 이상 돌렸으면 완료로 쳐 줍니다 (바로 누르기 방지) */
+const MIN_READ=120;
 $("finishBtn").onclick=()=>{
   const used=TOTAL-left, fh=$("finishHint");
   if(used<MIN_READ){
-    fh.textContent=left===TOTAL?"위에서 '시작'을 누르고 읽어 주세요. 1분 이상 읽으면 완료로 기록돼요.":`1분은 읽어야 완료로 기록돼요 (지금 ${used}초)`;
+    fh.textContent=left===TOTAL?"위에서 '시작'을 누르고 읽어 주세요. 2분 이상 읽으면 완료로 기록돼요.":`2분은 읽어야 완료로 기록돼요 (지금 ${used}초)`;
     fh.hidden=false; return;
   }
   fh.hidden=true; stop(); left=0; draw();
