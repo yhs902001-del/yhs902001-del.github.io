@@ -24,6 +24,7 @@
 <link rel="manifest" href="../manifest.webmanifest">
 </head>
 <body>
+
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
@@ -97,7 +98,8 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
 .gloss{border-top:1px solid var(--line);padding-top:14px;margin-top:8px;font-size:.88rem;color:var(--muted);display:grid;gap:4px}
 .gloss b{color:var(--ink);font-weight:600;margin-right:6px}
 .src{font-size:.78rem;color:var(--muted);margin-top:14px}
-.next{display:flex;justify-content:center;margin:26px 0 4px}
+.next{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:26px 0 4px}
+#finishHint{text-align:center;font-size:.85rem;color:var(--muted);margin-top:6px}
 .next .btn{display:inline-block;padding:14px 24px;font-size:1rem;text-decoration:none}
 .quiz{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:20px}
 .quiz h3{margin:0;font:600 1.05rem var(--f-ui)}
@@ -256,7 +258,8 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
 </div>
     <div class="gloss" id="gloss"></div>
     <div class="src" id="src"></div>
-    <div class="next"><a class="btn primary" id="switchBtn" href="#">이어서 비문학 읽기 →</a></div>
+    <div class="next"><button class="btn" id="finishBtn">다 읽었어요 ✓</button><a class="btn primary" id="switchBtn" href="#">이어서 비문학 읽기 →</a></div>
+    <div class="s" id="finishHint" hidden></div>
   </article>
 
   <aside class="shop" aria-label="오늘의 글, 책으로">
@@ -380,7 +383,7 @@ async function render(k){
   const o=OTHER[k], sw=$("switchBtn");
   sw.textContent=o==="nonfic"?"이어서 비문학 읽기 →":"이어서 소설 읽기 →";
   sw.href=PRE+"index.html#"+o;
-  $("done").hidden=true;
+  $("done").hidden=true; $("finishHint").hidden=true;
   if(typeof resetTimer==="function") resetTimer();
   renderShop(k);
 }
@@ -460,6 +463,18 @@ $("startBtn").onclick=()=>{
 };
 function resetTimer(){stop();left=TOTAL;draw();$("startBtn").textContent="시작";$("hint").textContent="시작을 누르고 끝까지 읽어 보세요"}
 $("resetBtn").onclick=resetTimer;
+/* 모래시계보다 먼저 다 읽은 사람: 타이머를 1분 이상 돌렸으면 완료로 쳐 줍니다 (바로 누르기 방지) */
+const MIN_READ=60;
+$("finishBtn").onclick=()=>{
+  const used=TOTAL-left, fh=$("finishHint");
+  if(used<MIN_READ){
+    fh.textContent=left===TOTAL?"위에서 '시작'을 누르고 읽어 주세요. 1분 이상 읽으면 완료로 기록돼요.":`1분은 읽어야 완료로 기록돼요 (지금 ${used}초)`;
+    fh.hidden=false; return;
+  }
+  fh.hidden=true; stop(); left=0; draw();
+  $("startBtn").textContent="다시"; $("hint").textContent="다 읽었어요! 오늘 읽기 완료"; finish();
+  $("done").scrollIntoView({behavior:"smooth",block:"center"});
+};
 
 /* 읽기 색: 고른 색을 이 브라우저에 기억합니다 */
 function setReader(r){
