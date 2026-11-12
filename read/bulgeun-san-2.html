@@ -24,6 +24,7 @@
 <link rel="manifest" href="../manifest.webmanifest">
 </head>
 <body>
+
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
@@ -71,6 +72,25 @@ h1{font-family:var(--f-display);font-weight:400;font-size:1.9rem;margin:0;letter
 .streak{font-size:.85rem;color:var(--muted)}
 .streak b{color:var(--sand);font-size:1.05rem;font-variant-numeric:tabular-nums}
 .tabs{display:flex;gap:6px;border-bottom:1px solid var(--line)}
+/* 연속 기록 카드: 동기 부여의 중심. 큰 숫자 + 최근 7일 점 + 다음 목표까지 */
+.run{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;align-items:center}
+.run .big{grid-row:span 2;display:flex;align-items:baseline;gap:4px;font-family:var(--f-display);color:var(--sand);line-height:1}
+.run .big b{font:600 2.6rem var(--f-ui);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.run .big span{font-size:1rem;color:var(--ink)}
+.run .say{font-size:.92rem;font-weight:500;line-height:1.45}
+.run .say.warn{color:var(--bad)}
+.week{display:flex;gap:6px}
+.week i{display:flex;flex-direction:column;align-items:center;gap:3px;font:normal .66rem var(--f-ui);color:var(--muted)}
+.week i::before{content:"";width:18px;height:18px;border-radius:50%;border:1.5px solid var(--line);box-sizing:border-box}
+.week i.on::before{background:var(--sand);border-color:var(--sand)}
+.week i.today::before{outline:2px solid var(--sand);outline-offset:2px}
+.week i.today{color:var(--ink);font-weight:600}
+.goal{grid-column:1/-1;display:flex;align-items:center;gap:10px;font-size:.78rem;color:var(--muted);margin-top:6px}
+.goal .bar{flex:1;height:6px;border-radius:99px;background:var(--sand-soft);overflow:hidden}
+.goal .bar u{display:block;height:100%;background:var(--sand);border-radius:99px;transition:width .6s}
+@media (max-width:440px){.run{grid-template-columns:1fr}.run .big{grid-row:auto}}
+.done .big{font:600 2.2rem var(--f-ui);color:var(--sand);font-variant-numeric:tabular-nums}
+.done .badge{display:inline-block;font:600 .8rem var(--f-ui);color:var(--paper);background:var(--sand);border-radius:99px;padding:3px 10px;margin-bottom:6px}
 .tab{font:500 .95rem var(--f-ui);background:none;border:0;color:var(--muted);padding:10px 4px;margin-right:14px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
 .tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--sand)}
 .tab:focus-visible,button:focus-visible{outline:2px solid var(--sand);outline-offset:2px}
@@ -153,7 +173,6 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
       <div class="tag">하루 한 편, 모래시계가 다 떨어질 때까지</div>
     </div>
     <div class="side">
-      <div class="streak">연속 <b id="streak">0</b>일 · 오늘 <span id="todayState">아직</span></div>
       <div class="reader" role="group" aria-label="읽기 색">읽기 색
         <button class="chip paper" data-r="paper" aria-label="종이" title="종이">가</button>
         <button class="chip sepia" data-r="sepia" aria-label="세피아" title="세피아">가</button>
@@ -162,6 +181,13 @@ article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:
       </div>
     </div>
   </header>
+
+  <section class="run" aria-label="연속 읽기 기록">
+    <div class="big"><b id="streak">0</b><span>일 연속</span></div>
+    <div class="say" id="runSay"></div>
+    <div class="week" id="week"></div>
+    <div class="goal"><span id="goalTxt"></span><div class="bar"><u id="goalBar" style="width:0"></u></div><span id="bestTxt"></span></div>
+  </section>
 
   <div class="tabs" role="tablist">
     <button class="tab" role="tab" id="tab-novel" aria-selected="true" data-k="novel">오늘의 소설</button>
@@ -340,7 +366,29 @@ function streakInfo(){
   while(days.has(dayKey(d))){n++; d.setDate(d.getDate()-1)}
   return {n, today:days.has(dayKey())};
 }
-function renderStreak(){const s=streakInfo();$("streak").textContent=s.n;$("todayState").textContent=s.today?"완료":"아직"}
+const GOALS=[3,7,14,30,60,100,200,365];
+function bestRun(){
+  const ds=[...new Set(store.get("h5_days",[]))].sort(); let best=0,run=0,prev=null;
+  ds.forEach(k=>{const d=new Date(k+"T00:00");run=(prev&&(d-prev)/864e5<1.5)?run+1:1;best=Math.max(best,run);prev=d});
+  return best;
+}
+function renderStreak(){
+  const s=streakInfo(), days=new Set(store.get("h5_days",[]));
+  $("streak").textContent=s.n;
+  const say=$("runSay"); say.classList.toggle("warn",!s.today&&s.n>0);
+  say.textContent=s.today?(s.n>1?`오늘도 완료! 내일 오면 ${s.n+1}일째예요.`:"첫 기록 완료! 내일 오면 2일 연속이에요.")
+    :s.n>0?`오늘 읽으면 ${s.n+1}일째. 놓치면 0일부터 다시 시작해요.`
+    :bestRun()>0?`지난 최고 기록은 ${bestRun()}일. 오늘 다시 시작하면 1일째예요!`
+    :"오늘부터 연속 기록을 시작해 보세요. 2분 이상 읽으면 하루 완료!";
+  const W="일월화수목금토", wk=$("week"); wk.innerHTML="";
+  for(let j=6;j>=0;j--){const d=new Date();d.setDate(d.getDate()-j);const i=document.createElement("i");
+    i.textContent=j===0?"오늘":W[d.getDay()]; if(days.has(dayKey(d))) i.classList.add("on"); if(j===0) i.classList.add("today");
+    i.title=dayKey(d)+(days.has(dayKey(d))?" 완료":""); wk.appendChild(i)}
+  const g=GOALS.find(x=>x>s.n)||s.n+100, from=[0,...GOALS].filter(x=>x<=s.n).pop()||0;
+  $("goalTxt").textContent=`${g}일 목표까지 ${g-s.n}일`;
+  $("goalBar").style.width=Math.round((s.n-from)/(g-from)*100)+"%";
+  const b=Math.max(bestRun(),s.n); $("bestTxt").textContent=b>1?`최고 ${b}일`:"";
+}
 function markDone(){const days=store.get("h5_days",[]);const k=dayKey();if(!days.includes(k)){days.push(k);store.set("h5_days",days.slice(-400))}renderStreak()}
 
 /* 글별 페이지에서는 H5_FIXED({k,i,e})로 한 편을 고정해서 보여 줍니다 */
@@ -433,11 +481,14 @@ function mountAds(){
 function finish(){
   if(window.gtag) gtag("event","reading_complete",{kind:cur,title:curRead&&curRead.title});
   markDone(); const s=streakInfo();
-  $("doneMsg").textContent=`연속 ${s.n}일째 5분 읽기를 마쳤어요. 내일 또 만나요.`;
+  const hit=GOALS.includes(s.n), nx=GOALS.find(x=>x>s.n)||s.n+100;
+  $("doneMsg").innerHTML=(hit?`<span class="badge">🏅 ${s.n}일 연속 달성</span><br>`:"")+`<span class="big"></span> 일 연속<br>`;
+  $("doneMsg").querySelector(".big").textContent=s.n;
+  $("doneMsg").appendChild(document.createTextNode(hit?`대단해요! 다음 목표는 ${nx}일이에요. 내일도 만나요.`:`${nx}일 목표까지 ${nx-s.n}일 남았어요. 내일 오면 ${s.n+1}일째!`));
   $("done").hidden=false;
 }
 $("shareBtn").onclick=()=>{
-  const s=streakInfo(); const txt=`5분 뽀모도로 ${s.n}일째 완료 📖 오늘은 「${curRead.title}」`;
+  const s=streakInfo(); const txt=`📖 5분 뽀모도로 ${s.n}일 연속 읽는 중! 오늘은 「${curRead.title}」 ${location.origin}/`;
   const ok=()=>{$("toast").hidden=false;setTimeout(()=>$("toast").hidden=true,1800)};
   navigator.clipboard?.writeText(txt).then(ok).catch(()=>{$("doneMsg").textContent=txt});
 };

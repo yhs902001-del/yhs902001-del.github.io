@@ -68,6 +68,25 @@ h1{font-family:var(--f-display);font-weight:400;font-size:1.9rem;margin:0;letter
 .streak{font-size:.85rem;color:var(--muted)}
 .streak b{color:var(--sand);font-size:1.05rem;font-variant-numeric:tabular-nums}
 .tabs{display:flex;gap:6px;border-bottom:1px solid var(--line)}
+/* 연속 기록 카드: 동기 부여의 중심. 큰 숫자 + 최근 7일 점 + 다음 목표까지 */
+.run{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;align-items:center}
+.run .big{grid-row:span 2;display:flex;align-items:baseline;gap:4px;font-family:var(--f-display);color:var(--sand);line-height:1}
+.run .big b{font:600 2.6rem var(--f-ui);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.run .big span{font-size:1rem;color:var(--ink)}
+.run .say{font-size:.92rem;font-weight:500;line-height:1.45}
+.run .say.warn{color:var(--bad)}
+.week{display:flex;gap:6px}
+.week i{display:flex;flex-direction:column;align-items:center;gap:3px;font:normal .66rem var(--f-ui);color:var(--muted)}
+.week i::before{content:"";width:18px;height:18px;border-radius:50%;border:1.5px solid var(--line);box-sizing:border-box}
+.week i.on::before{background:var(--sand);border-color:var(--sand)}
+.week i.today::before{outline:2px solid var(--sand);outline-offset:2px}
+.week i.today{color:var(--ink);font-weight:600}
+.goal{grid-column:1/-1;display:flex;align-items:center;gap:10px;font-size:.78rem;color:var(--muted);margin-top:6px}
+.goal .bar{flex:1;height:6px;border-radius:99px;background:var(--sand-soft);overflow:hidden}
+.goal .bar u{display:block;height:100%;background:var(--sand);border-radius:99px;transition:width .6s}
+@media (max-width:440px){.run{grid-template-columns:1fr}.run .big{grid-row:auto}}
+.done .big{font:600 2.2rem var(--f-ui);color:var(--sand);font-variant-numeric:tabular-nums}
+.done .badge{display:inline-block;font:600 .8rem var(--f-ui);color:var(--paper);background:var(--sand);border-radius:99px;padding:3px 10px;margin-bottom:6px}
 .tab{font:500 .95rem var(--f-ui);background:none;border:0;color:var(--muted);padding:10px 4px;margin-right:14px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
 .tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--sand)}
 .tab:focus-visible,button:focus-visible{outline:2px solid var(--sand);outline-offset:2px}
