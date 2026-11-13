@@ -26,7 +26,9 @@
 <body>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap"></noscript>
 <style>
 /* Layout: 한 줄 읽기 기둥. 위에 모래시계, 가운데 지문. 전자책 리더처럼 종이·세피아·연두·밤 네 가지 읽기 색. */
 :root{
@@ -103,6 +105,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .btn{font:500 .9rem var(--f-ui);border-radius:999px;padding:9px 16px;cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--ink)}
 .btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 @media (max-width:440px){.clock{flex-wrap:wrap}.clock .ctl{margin-left:0;width:100%}.clock .ctl .btn{flex:1}}
+/* 읽는 중에는 타이머를 한 줄로 줄여 글이 더 많이 보이게 */
+.clock.mini{flex-wrap:nowrap;gap:10px;padding:8px 12px}
+.clock.mini svg{width:22px;height:33px}
+.clock.mini .tw{flex:1;min-width:0}
+.clock.mini .t{font-size:1.3rem;line-height:1.1}
+.clock.mini .s{font-size:.72rem;margin-top:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.clock.mini .ctl{margin-left:auto;width:auto;gap:6px}
+.clock.mini .ctl .btn{flex:none;padding:6px 12px;font-size:.8rem}
+.wrap:has(.clock.mini) article h2{scroll-margin-top:104px}
 .meta{font-size:.78rem;letter-spacing:.08em;color:var(--sand);text-transform:uppercase;font-weight:600}
 article h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:6px 0 4px;text-wrap:balance}
 .by{font-size:.85rem;color:var(--muted);margin-bottom:18px}
@@ -228,7 +239,7 @@ article h2{scroll-margin-top:190px}
       <rect x="5" y="3" width="54" height="5" rx="2" fill="var(--ink)"/>
       <rect x="5" y="88" width="54" height="5" rx="2" fill="var(--ink)"/>
     </svg>
-    <div>
+    <div class="tw">
       <div class="t" id="time">5:00</div>
       <div class="s" id="hint">시작을 누르고 끝까지 읽어 보세요</div>
     </div>
@@ -617,6 +628,7 @@ function draw(){
   $("topSand").setAttribute("y",48-topH); $("topSand").setAttribute("height",topH);
   $("botSand").setAttribute("y",88-botH); $("botSand").setAttribute("height",botH);
   $("stream").setAttribute("opacity",timer&&left>0?"1":"0");
+  document.querySelector(".clock").classList.toggle("mini",!!timer||left<TOTAL);
 }
 function tick(){ if(left>0){left--;draw()} if(left===0){stop();$("hint").textContent="5분 끝! 오늘 읽기 완료";$("startBtn").textContent="다시";finish()}}
 function stop(){clearInterval(timer);timer=null;draw()}
