@@ -24,7 +24,6 @@
 <link rel="manifest" href="../manifest.webmanifest">
 </head>
 <body>
-
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
@@ -143,6 +142,11 @@ article h2{scroll-margin-top:190px}
 .done{border-top:1px solid var(--line);padding-top:16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .done .msg{flex:1;min-width:200px;font-family:var(--f-body);font-size:1.05rem}
 .toast{font-size:.82rem;color:var(--ok)}
+.tmr,.a2hs{background:var(--sand-soft);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.tmr .lab,.a2hs .lab{font:600 .75rem var(--f-ui);letter-spacing:.06em;color:var(--sand)}
+.tmr p{margin:0;font-family:var(--f-body);font-size:1.05rem;line-height:1.6;word-break:keep-all;text-wrap:pretty}
+.a2hs p{margin:0;font-size:.9rem;line-height:1.6;word-break:keep-all}
+.a2hs .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
 .shop{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-direction:column;gap:12px}
 .shop h3{margin:0;font:600 1rem var(--f-ui)}
 .shop h3 small{font-weight:400;color:var(--muted);margin-left:6px;font-size:.8rem}
@@ -296,7 +300,7 @@ article h2{scroll-margin-top:190px}
 </div>
     <div class="gloss" id="gloss"></div>
     <div class="src" id="src"></div>
-    <div class="like"><span>이 글 어땠어요?</span><button id="likeBtn" aria-pressed="false">♡ 좋아요</button></div>
+    <div class="like"><span>이 글 어땠어요?</span><button id="likeBtn" aria-pressed="false">♡ 좋아요</button><button id="shareArt">↗ 공유</button></div>
     <div class="next"><button class="btn" id="finishBtn">다 읽었어요 ✓</button><a class="btn primary" id="switchBtn" href="#">이어서 비문학 읽기 →</a></div>
     <div class="s" id="finishHint" hidden></div>
   </article>
@@ -314,9 +318,12 @@ article h2{scroll-margin-top:190px}
     <h3>오늘의 5분, 완료</h3>
     <div class="done">
       <div class="msg" id="doneMsg"></div>
-      <button class="btn primary" id="shareBtn">공유 문구 복사</button>
+      <button class="btn primary" id="shareBtn">↗ 기록 공유하기</button>
       <span class="toast" id="toast" hidden>복사했어요</span>
     </div>
+    <div class="tmr" id="tmr" hidden><span class="lab" id="tmrLab"></span><p id="tmrTxt"></p></div>
+    <div class="a2hs" id="a2hs" hidden><span class="lab">내일도 한 번에 열기</span><p id="a2hsTxt"></p>
+      <div class="row"><button class="btn primary sm" id="a2hsGo" hidden>홈 화면에 추가</button><button class="btn sm" id="a2hsNo">다시 보지 않기</button></div></div>
   </section>
 </div>
 
@@ -325,7 +332,7 @@ article h2{scroll-margin-top:190px}
   <div>소설은 저작권 보호 기간이 끝난 작품을 위키문헌 원문 그대로 싣고, 비문학 지문은 5분 뽀모도로가 직접 씁니다.</div>
   <div>© 2026 5분 뽀모도로</div>
 </footer>
-<script>window.H5_PREFIX="../";window.H5_META={"novel":60,"nonfic":60};window.H5_FIXED={"k":"novel","i":59,"e":{"work":"할머니의 죽음","author":"현진건","life":"1900~1943","year":1923,"part":3,"of":3,"gloss":[["자부","며느리"],["초치","어떤 결과를 불러옴"],["부의","초상집에 보내는 돈이나 물건"],["양의","서양 의술을 익힌 의사"]],"text":"이 외침을 듣고 자부(子婦)들은 모여들었다. 그들의 눈은 호기심에 번쩍이고 있었다. 나는 또 할머니의 청을 물리칠 수는 없었다. 그것이 어떠한 나쁜 영향을 초치(招致)할지라도 아니 일으켜 드릴 수 없었다.\n\n그러나 할머니는 욧바닥 위로 반 자를 떠나지 못하여,\n\n\"아야야……\"\n\n라고, 외마디 소리를 쳤다. 나는 얼른 들어올리던 손을 뺄 수밖에 없었다.\n\n다시금 눕기 싫어하던 요 위에 누운 뒤에도 할머니는 앓기를 마지 않았다. 적지 아니한 꾸중을 모시었다.\n\n이윽고 조금 진정이 되더니만 또 팔을 내저으면 기를 쓰고 가슴에 덮은 이불 자락을 자꾸자꾸 밀어내리었다. 감기가 들까 염려하는 중모는 그것을 꾸준히 도로 집어 올렸다.\n\n할머니는 손을 내어밀더니 이번에는 내 조끼 단추를 붙잡아 당기었다.\n\n\"왜, 이리 하십니까, 단추를 빼란 말씀입니까?\"\n\n할머니는 고개를 끄덕이었다. 끄덕였다 하여도 끄덕이려는 의사를 보였을뿐이었다. 나는 단 추 한 개를 빼었다. 그대로 할머니는 자꾸 조끼의 단추와 씨름을 마지 아니 하였다. 나는 단추를 낱낱이 빼는 수밖에 없었다. 그러고 나니 그는 또 옷고름과 실랑이를 시작하였다.\n\n\"옷고름을 끄를까요?\"\n\n\"응!\"\n\n나는 또 옷고름을 끌렀다. 끄른 뒤엔 할머니는 또 소매를 잡아당기었다.\n\n\"왜 이리 하셔요?\"\n\n\"버, 벗어라, 답답치 않니.\"\n\n여기저기서 물어 멈추려고 애쓰는 웃음이 키키, 하였다.\n\n나는 경멸과 모욕의 시선을 그들에게 던졌다. 자기가 얼마나 답답하고 갑갑하길래 남의 단추 끼운 것과 옷고름 맨 것과, 저고리 입은 것조차 답답해 보일 것이랴! 여기는 쓰디쓴 눈물과 살을 저미는 슬픔이 있어야 하겠서늘, 이 기막힌 광경을 조소로 맞아야 옳을까?\n\n나는 곧 그들에게 침이라도 뱉고 싶었다. 하되 나의 마음을 냉정하게 살펴본즉 슬프다! 나에게는 그들을 모욕할 권리가 없었다. 형수들 앞에서 앞가슴을 풀어젖히라는 할머니가 민망스럽기도 하고 딱하기도 하였다. 환자를 가엾다고 생각하면서도 나의 속 어디인지 웃음이 움직인 것은 부정할 수 없는 사실이었다. 더구나 내가 젊은이 패가 모인 이웃집 방에 들어갔을 제 무슨 재미스러운 일이나 보고 온 사람 모양으로 득의양양히 이 이야기를 하고서 허리를 분질렀다.…….\n\n거기에서는 할머니의 병세에 대하여 의논이 분분하였다. 그들은 하나도 한가한 이가 없었다. 혹은 변호사, 혹은 은행원, 혹은 회사원으로 다 무한년하고 있을 수 없는 형편이었다.\n\n\"나는 암만해도 내일은 좀 가 보아야 되겠는데, 나는 그 전보를 받고 벌써 돌아가신 줄 알았어. 올 때에 친구들이 북포(北布)니 뭐니 부의(賻儀)를 주길래 아직 돌아가시지도 않았는데 이게 웬일이냐 하니까, 그 사람들 말이, 돌아가셔도 자손들에게 그렇게 전보를 놓느니, 하데그려. 그래 모두 받아왔는데, 허허허…….\"\n\n그 중에 제일 연장자로 쾌활하고 말 잘하는 형(伯兄)은 웃음 섞어 이런 말을 하고 있었다.\n\n\"암만해도 오늘 내일 돌아가실 것 같지는 않는데…… 이거, 큰일 났는걸, 갈 수도 없고…….\"\n\n\"다는 곧 돌아가실 것 같지는 않아…….\"\n\n은행원으로 있는 육촌은 이렇게 맞방망이를 쳤다.\n\n\"의사를 불러서 진단을 해보는 것이 어떨까요?\"\n\n부산 방직회사에 다니는 사촌이 이런 제의를 하였다.\n\n\"옳지, 참 그래 보아야 되겠군.\"\n\n아버지께 이 사연을 아뢰었다.\n\n\"시방 그물그물하시지 않나, 그러면 하여간 의원을 좀 불러올까.\"\n\n의원은 아버지와 절친한 김주부(金主簿)를 청해 오기로 하였다.\n\n갓을 쓴 그 의원은 얼마 아니 되어 미륵 같은 몸뚱이를 환자 방에 나타내었다. 매우 정신을 모으는 듯이 눈을 내리감고 한나절이나 진맥을 하더니 고개를 절레절레 흔들며 물러 앉는다.\n\n\"매우 말하기 어려운 듯이, 기실 조금도 말하기 어렵지 않은 듯이, 그 의원은 최후의 판결을 언도하였다.\n\n\"글세, 그래 워낙 노쇠하셔서 우래 부지를 하실 수 없지…….\"\n\n그러면 그렇지 하는 얼굴로 아버지는 맞방망이를 쳤다.\n\n가려던 자손은 또 붙잡히었다. 그러나 할머니는 그날 저녁부터 한결 돌리었다. 가끔 잡수실 것을 찾기도 하였다. 잡숫는 건 고작해야 배즙, 국묵에 만 한 술도 안되는 진지였다. 죽과 미음은 입에 대기도 싫어하였다. 그리고 전일에 발라드린 양약의 효험이 나서 상처가 아물었던지 자부와 손부에게 부축되어 꽤 오래 일어나 앉게도 되었다.\n\n그 이튿날이 무사히 지나가자, 한의(漢醫)의 무지를 비소(誹笑)하고, 다른 것은 몰라도 환자의 수명이 어느 때까지 계속될 시간 아는 데 들어서는 양의(洋醫)가 나으리라는 우리 젊은 패의 주장에 의하여 ××의원 원장으로 있는 지바 의학사(千葉醫學士)를 불러오게 되었다.\n\n그는 진찰한 결과에 다른 증세만 겹치지 않으면 이삼 주일은 무려(無慮)하리라 하였다.\n\n\"그래, 그저 그럴 거야, 아직 괜찮으신데 백주에 서둘고 야단을 했지.\"\n\n하고, 일이 바쁜 백형(伯兄)은 그날 밤으로 떠나갔다.\n\n그 이튿날 아침이었다.\n\n우리가 집에 돌아오니까 할머니 곁을 떠난 적 없는 중모가 마당에 한가롭게 할머니의 뒤 흘린 바지를 빨고 있다가 웃는 낯으로 우리를 맞으며,\n\n\"할머님이 오늘 아침에는 혼자 일어나셨다. 시방 진지를 잡수시고 계시다. 어서 들어가 뵈와라.\"\n\n나는 뛰어들어갔다. 자부와 손부의 신기해 여기는 시선을 받으면서 할머니는 정말 진지를 잡숫고 있었다.\n\n나는 빙글빙글 웃으며,\n\n\"할머니, 어떻게 일어나셨습니까?\"\n\n할머니는 합죽한 입을 오물오물하며 막 떠넣은 밥 알맹이를 삼키고,\n\n\"내가 혼자 일어났지, 어떻게 일어나긴. 흉악한 놈들, 암만 일으켜 달라니 어데 일으켜 주어야지. 인제 나 혼자라도 일어난다.\"\n\n하며 자랑스럽게 대답하였다.\n\n\"어제 의원이 왔지요. 인제 할머니가 곧 나으신대요.\"\n\n\"정말 낫겠다고 하던, 응?\"\n\n하고 검버섯 핀 주름을 밀며 흔연(欣然)한 웃음의 그림자가 오래간만에 그의 볼을 스쳤다. 나의 눈엔 어쩐지 눈물이 핑 돌았다.\n\n그날 밤차로 모였던 자손들은 제각기 흩어졌다. 나도 그날 밤에 서울로 올라왔다.\n\n어느 아름다운 봄날이었다…… 말갛게 개인 하늘은 구름 한 점도 없고 아른아른한 아지랑이가 그 하늘거리는 깁 오리로 봄비단을 짜내는 어느 아름다운 봄날이었다. 나는 깨끗하게 춘복(春服)을 차리고 친구 몇 명과 우이동 앵화(櫻花) 구경을 막 나가려던 때이었다. 이때에 뜻 아니한 전보 한 장이 닥치었다.\n\n'오전 3시 조모주 별세'"}};</script>
+<script>window.H5_PREFIX="../";window.H5_META={"novel":60,"nonfic":60};window.H5_FIXED={"k":"novel","i":59,"e":{"work":"할머니의 죽음","author":"현진건","life":"1900~1943","year":1923,"part":3,"of":3,"gloss":[["자부","며느리"],["초치","어떤 결과를 불러옴"],["부의","초상집에 보내는 돈이나 물건"],["양의","서양 의술을 익힌 의사"]],"text":"이 외침을 듣고 자부(子婦)들은 모여들었다. 그들의 눈은 호기심에 번쩍이고 있었다. 나는 또 할머니의 청을 물리칠 수는 없었다. 그것이 어떠한 나쁜 영향을 초치(招致)할지라도 아니 일으켜 드릴 수 없었다.\n\n그러나 할머니는 욧바닥 위로 반 자를 떠나지 못하여,\n\n\"아야야……\"\n\n라고, 외마디 소리를 쳤다. 나는 얼른 들어올리던 손을 뺄 수밖에 없었다.\n\n다시금 눕기 싫어하던 요 위에 누운 뒤에도 할머니는 앓기를 마지 않았다. 적지 아니한 꾸중을 모시었다.\n\n이윽고 조금 진정이 되더니만 또 팔을 내저으면 기를 쓰고 가슴에 덮은 이불 자락을 자꾸자꾸 밀어내리었다. 감기가 들까 염려하는 중모는 그것을 꾸준히 도로 집어 올렸다.\n\n할머니는 손을 내어밀더니 이번에는 내 조끼 단추를 붙잡아 당기었다.\n\n\"왜, 이리 하십니까, 단추를 빼란 말씀입니까?\"\n\n할머니는 고개를 끄덕이었다. 끄덕였다 하여도 끄덕이려는 의사를 보였을뿐이었다. 나는 단 추 한 개를 빼었다. 그대로 할머니는 자꾸 조끼의 단추와 씨름을 마지 아니 하였다. 나는 단추를 낱낱이 빼는 수밖에 없었다. 그러고 나니 그는 또 옷고름과 실랑이를 시작하였다.\n\n\"옷고름을 끄를까요?\"\n\n\"응!\"\n\n나는 또 옷고름을 끌렀다. 끄른 뒤엔 할머니는 또 소매를 잡아당기었다.\n\n\"왜 이리 하셔요?\"\n\n\"버, 벗어라, 답답치 않니.\"\n\n여기저기서 물어 멈추려고 애쓰는 웃음이 키키, 하였다.\n\n나는 경멸과 모욕의 시선을 그들에게 던졌다. 자기가 얼마나 답답하고 갑갑하길래 남의 단추 끼운 것과 옷고름 맨 것과, 저고리 입은 것조차 답답해 보일 것이랴! 여기는 쓰디쓴 눈물과 살을 저미는 슬픔이 있어야 하겠서늘, 이 기막힌 광경을 조소로 맞아야 옳을까?\n\n나는 곧 그들에게 침이라도 뱉고 싶었다. 하되 나의 마음을 냉정하게 살펴본즉 슬프다! 나에게는 그들을 모욕할 권리가 없었다. 형수들 앞에서 앞가슴을 풀어젖히라는 할머니가 민망스럽기도 하고 딱하기도 하였다. 환자를 가엾다고 생각하면서도 나의 속 어디인지 웃음이 움직인 것은 부정할 수 없는 사실이었다. 더구나 내가 젊은이 패가 모인 이웃집 방에 들어갔을 제 무슨 재미스러운 일이나 보고 온 사람 모양으로 득의양양히 이 이야기를 하고서 허리를 분질렀다.…….\n\n거기에서는 할머니의 병세에 대하여 의논이 분분하였다. 그들은 하나도 한가한 이가 없었다. 혹은 변호사, 혹은 은행원, 혹은 회사원으로 다 무한년하고 있을 수 없는 형편이었다.\n\n\"나는 암만해도 내일은 좀 가 보아야 되겠는데, 나는 그 전보를 받고 벌써 돌아가신 줄 알았어. 올 때에 친구들이 북포(北布)니 뭐니 부의(賻儀)를 주길래 아직 돌아가시지도 않았는데 이게 웬일이냐 하니까, 그 사람들 말이, 돌아가셔도 자손들에게 그렇게 전보를 놓느니, 하데그려. 그래 모두 받아왔는데, 허허허…….\"\n\n그 중에 제일 연장자로 쾌활하고 말 잘하는 형(伯兄)은 웃음 섞어 이런 말을 하고 있었다.\n\n\"암만해도 오늘 내일 돌아가실 것 같지는 않는데…… 이거, 큰일 났는걸, 갈 수도 없고…….\"\n\n\"다는 곧 돌아가실 것 같지는 않아…….\"\n\n은행원으로 있는 육촌은 이렇게 맞방망이를 쳤다.\n\n\"의사를 불러서 진단을 해보는 것이 어떨까요?\"\n\n부산 방직회사에 다니는 사촌이 이런 제의를 하였다.\n\n\"옳지, 참 그래 보아야 되겠군.\"\n\n아버지께 이 사연을 아뢰었다.\n\n\"시방 그물그물하시지 않나, 그러면 하여간 의원을 좀 불러올까.\"\n\n의원은 아버지와 절친한 김주부(金主簿)를 청해 오기로 하였다.\n\n갓을 쓴 그 의원은 얼마 아니 되어 미륵 같은 몸뚱이를 환자 방에 나타내었다. 매우 정신을 모으는 듯이 눈을 내리감고 한나절이나 진맥을 하더니 고개를 절레절레 흔들며 물러 앉는다.\n\n\"매우 말하기 어려운 듯이, 기실 조금도 말하기 어렵지 않은 듯이, 그 의원은 최후의 판결을 언도하였다.\n\n\"글세, 그래 워낙 노쇠하셔서 우래 부지를 하실 수 없지…….\"\n\n그러면 그렇지 하는 얼굴로 아버지는 맞방망이를 쳤다.\n\n가려던 자손은 또 붙잡히었다. 그러나 할머니는 그날 저녁부터 한결 돌리었다. 가끔 잡수실 것을 찾기도 하였다. 잡숫는 건 고작해야 배즙, 국묵에 만 한 술도 안되는 진지였다. 죽과 미음은 입에 대기도 싫어하였다. 그리고 전일에 발라드린 양약의 효험이 나서 상처가 아물었던지 자부와 손부에게 부축되어 꽤 오래 일어나 앉게도 되었다.\n\n그 이튿날이 무사히 지나가자, 한의(漢醫)의 무지를 비소(誹笑)하고, 다른 것은 몰라도 환자의 수명이 어느 때까지 계속될 시간 아는 데 들어서는 양의(洋醫)가 나으리라는 우리 젊은 패의 주장에 의하여 ××의원 원장으로 있는 지바 의학사(千葉醫學士)를 불러오게 되었다.\n\n그는 진찰한 결과에 다른 증세만 겹치지 않으면 이삼 주일은 무려(無慮)하리라 하였다.\n\n\"그래, 그저 그럴 거야, 아직 괜찮으신데 백주에 서둘고 야단을 했지.\"\n\n하고, 일이 바쁜 백형(伯兄)은 그날 밤으로 떠나갔다.\n\n그 이튿날 아침이었다.\n\n우리가 집에 돌아오니까 할머니 곁을 떠난 적 없는 중모가 마당에 한가롭게 할머니의 뒤 흘린 바지를 빨고 있다가 웃는 낯으로 우리를 맞으며,\n\n\"할머님이 오늘 아침에는 혼자 일어나셨다. 시방 진지를 잡수시고 계시다. 어서 들어가 뵈와라.\"\n\n나는 뛰어들어갔다. 자부와 손부의 신기해 여기는 시선을 받으면서 할머니는 정말 진지를 잡숫고 있었다.\n\n나는 빙글빙글 웃으며,\n\n\"할머니, 어떻게 일어나셨습니까?\"\n\n할머니는 합죽한 입을 오물오물하며 막 떠넣은 밥 알맹이를 삼키고,\n\n\"내가 혼자 일어났지, 어떻게 일어나긴. 흉악한 놈들, 암만 일으켜 달라니 어데 일으켜 주어야지. 인제 나 혼자라도 일어난다.\"\n\n하며 자랑스럽게 대답하였다.\n\n\"어제 의원이 왔지요. 인제 할머니가 곧 나으신대요.\"\n\n\"정말 낫겠다고 하던, 응?\"\n\n하고 검버섯 핀 주름을 밀며 흔연(欣然)한 웃음의 그림자가 오래간만에 그의 볼을 스쳤다. 나의 눈엔 어쩐지 눈물이 핑 돌았다.\n\n그날 밤차로 모였던 자손들은 제각기 흩어졌다. 나도 그날 밤에 서울로 올라왔다.\n\n어느 아름다운 봄날이었다…… 말갛게 개인 하늘은 구름 한 점도 없고 아른아른한 아지랑이가 그 하늘거리는 깁 오리로 봄비단을 짜내는 어느 아름다운 봄날이었다. 나는 깨끗하게 춘복(春服)을 차리고 친구 몇 명과 우이동 앵화(櫻花) 구경을 막 나가려던 때이었다. 이때에 뜻 아니한 전보 한 장이 닥치었다.\n\n'오전 3시 조모주 별세'","u":"read/halmeoni-3.html"}};</script>
 <script>
 /* ── 광고 설정: 승인받은 뒤 여기만 채우면 됩니다 ── */
 const CONFIG = {
@@ -537,12 +544,66 @@ function finish(){
   $("doneMsg").innerHTML=(hit?`<span class="badge">🏅 ${s.n}일 연속 달성</span><br>`:"")+`<span class="big"></span> 일 연속<br>`;
   $("doneMsg").querySelector(".big").textContent=s.n;
   $("doneMsg").appendChild(document.createTextNode(hit?`대단해요! 다음 목표는 ${nx}일이에요. 내일도 만나요.`:`${nx}일 목표까지 ${nx-s.n}일 남았어요. 내일 오면 ${s.n+1}일째!`));
-  $("done").hidden=false;
+  $("done").hidden=false; showTomorrow(); showA2hs();
+}
+/* 내일 예고: 오늘 글을 끝냈을 때만, 다음 글의 한 줄을 미리 보여 줍니다 */
+async function showTomorrow(){
+  const box=$("tmr"); box.hidden=true;
+  if(FIX||view[cur]!==topI[cur]) return;
+  const k=cur, e0=curRead.e;
+  try{
+    const e=await getPiece(k,(topI[k]+1)%(META[k]||1));
+    if(k!==cur||$("done").hidden) return;
+    let lab,txt;
+    if(k==="novel"){
+      if(e.work===e0.work){lab="내일 이어지는 이야기";txt=`「${e.work}」 ${e.part}/${e.of}회`+(e.part===e.of?" · 마지막 회입니다.":"로 이어집니다.")}
+      else{lab=`내일 새로 시작하는 이야기 · ${e.author} 「${e.work}」`;txt=HOOKS.novel[e.work]||""}
+    }else{const h=HOOKS.nonfic[e.title]; lab="내일의 비문학 · "+e.field; txt=h?h[1]:e.title}
+    if(!txt) return;
+    $("tmrLab").textContent=lab; $("tmrTxt").textContent=txt; box.hidden=false;
+  }catch(_){}
+}
+/* 홈 화면 추가 안내: 휴대폰에서, 아직 설치하지 않았고, 닫은 적이 없을 때만 */
+let installEvt=null;
+window.addEventListener("beforeinstallprompt",ev=>{ev.preventDefault();installEvt=ev});
+function showA2hs(){
+  const box=$("a2hs"), ua=navigator.userAgent;
+  const alone=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+  const ios=/iPhone|iPad|iPod/.test(ua), mobile=ios||/Android/.test(ua), inapp=/KAKAOTALK|NAVER\(|Instagram|FBAN|FBAV|Line\//i.test(ua);
+  if(alone||store.get("h5_a2hs",0)||!(installEvt||mobile)){box.hidden=true;return}
+  $("a2hsGo").hidden=!installEvt;
+  $("a2hsTxt").textContent=installEvt?"홈 화면에 추가해 두면 앱처럼 한 번에 열 수 있어요. 연속 기록도 그대로 이어집니다."
+    :inapp?"지금은 앱 안의 창이라 기록이 따로 저장돼요. 메뉴에서 '다른 브라우저로 열기'를 누른 뒤 홈 화면에 추가해 두면 매일 한 번에 열 수 있어요."
+    :ios?"아래 공유 버튼(네모에 위쪽 화살표)을 누르고 '홈 화면에 추가'를 고르면 앱처럼 한 번에 열 수 있어요."
+    :"브라우저 메뉴(⋮)에서 '홈 화면에 추가'를 누르면 앱처럼 한 번에 열 수 있어요.";
+  if(box.hidden&&window.gtag) gtag("event","a2hs_show",{way:installEvt?"button":inapp?"inapp":ios?"ios":"menu"});
+  box.hidden=false;
+}
+$("a2hsNo").onclick=()=>{store.set("h5_a2hs",1);$("a2hs").hidden=true};
+$("a2hsGo").onclick=async()=>{
+  if(!installEvt) return;
+  installEvt.prompt(); let r=null; try{r=await installEvt.userChoice}catch(_){}
+  installEvt=null;
+  if(r&&r.outcome==="accepted"){if(window.gtag) gtag("event","a2hs_install");store.set("h5_a2hs",1);$("a2hs").hidden=true}
+  else $("a2hsGo").hidden=true;
+};
+/* 공유: 휴대폰은 공유 창(카카오톡 등), 안 되면 문구를 복사. 받는 사람은 그 글 페이지로 바로 들어옵니다 */
+const pieceUrl=()=>FIX?location.href.split(/[?#]/)[0]:new URL(PRE+((curRead&&curRead.e.u)||""),location.href).href.split(/[?#]/)[0];
+function shareOut(txt,where,copied){
+  const url=pieceUrl();
+  if(window.gtag) gtag("event","share",{where,kind:cur,title:curRead&&curRead.title});
+  if(navigator.share){navigator.share({title:"5분 뽀모도로",text:txt,url}).catch(()=>{});return}
+  const full=txt+" "+url;
+  if(navigator.clipboard) navigator.clipboard.writeText(full).then(copied).catch(()=>prompt("아래 문구를 복사해 주세요",full));
+  else prompt("아래 문구를 복사해 주세요",full);
 }
 $("shareBtn").onclick=()=>{
-  const s=streakInfo(); const txt=`📖 5분 뽀모도로 ${s.n}일 연속 읽는 중! 오늘은 「${curRead.title}」 ${location.origin}/`;
-  const ok=()=>{$("toast").hidden=false;setTimeout(()=>$("toast").hidden=true,1800)};
-  navigator.clipboard?.writeText(txt).then(ok).catch(()=>{$("doneMsg").textContent=txt});
+  const s=streakInfo();
+  shareOut(`📖 5분 뽀모도로 ${s.n}일 연속 읽는 중! 오늘은 「${curRead.title}」`,"done",()=>{$("toast").hidden=false;setTimeout(()=>$("toast").hidden=true,1800)});
+};
+$("shareArt").onclick=()=>{
+  const e=curRead.e, h=cur==="novel"?HOOKS.novel[e.work]:(HOOKS.nonfic[e.title]||[])[1], b=$("shareArt");
+  shareOut((h?h+" ":"")+`「${curRead.title}」 5분이면 읽어요.`,"article",()=>{b.textContent="✓ 복사했어요";setTimeout(()=>b.textContent="↗ 공유",1800)});
 };
 document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>render(t.dataset.k));
 
